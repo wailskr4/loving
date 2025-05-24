@@ -66,6 +66,8 @@ body {
   width: 100%;
   max-width: 500px;
   margin: 2rem auto;
+  height: auto;
+
   text-align: center;
   transition: all 0.3s ease;
   animation: fadeIn 1s ease;
