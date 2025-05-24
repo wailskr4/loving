@@ -48,6 +48,8 @@ body {
   color: white;
   display: flex;
   justify-content: center;
+flex-direction: column;
+flex-wrap:wrap;
   align-items: center;
   min-height: 100vh;
   animation: gradientShift 18s ease infinite;
