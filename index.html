@@ -435,5 +435,53 @@ function latersecs2() {
 </script>
 
 
+
+
+
+
+
+
+
+
+
+
+<audio id="romanticAudio" autoplay loop>
+  <source src="musique.mp3" type="audio/mpeg">
+  Ton navigateur ne supporte pas l'audio HTML5.
+</audio>
+<button onclick="startMusic()">Entrer</button>
+
+<script>
+  function startMusic() {
+    document.getElementById('romanticAudio').play();
+    // Tu peux aussi cacher ce bouton ensuite
+  }
+</script>
+<button onclick="toggleAudio()" style="margin-top: 20px;">Activer / Désactiver musique</button>
+
+<script>
+  const audio = document.getElementById('romanticAudio');
+  let isPlaying = true;
+
+  function toggleAudio() {
+    if (isPlaying) {
+      audio.pause();
+    } else {
+      audio.play();
+    }
+    isPlaying = !isPlaying;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
 </body>
 </html>
