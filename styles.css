@@ -56,19 +56,19 @@ body {
 }
 
 .container {
-      background: rgba(255, 255, 255, 0.15);
-      border-radius: 20px;
-      height: 35vh;
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border: 1px solid rgba(255, 255, 255, 0.18);
-      padding: 2rem;
-      width: 100%;
-      max-width: 500px;
-      margin: 2rem;
-      text-align: center;
-      transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  padding: 2rem;
+  width: 100%;
+  max-width: 500px;
+  margin: 2rem auto;
+  text-align: center;
+  transition: all 0.3s ease;
+  animation: fadeIn 1s ease;
 }
 
 .container:hover {
@@ -360,17 +360,57 @@ button.hot {
 }
 
 @media (max-width: 600px) {
+  body {
+    padding: 1rem;
+    align-items: flex-start;
+  }
 
- .container {
-        padding: 1.5rem;
-        border-radius: 15px;
-      }
-      
-      button {
-        padding: 0.7rem 1.2rem;
-      }
-      
-      .button-group {
-        flex-direction: column;
-      }
-    }
+  .container {
+    padding: 1.2rem;
+    border-radius: 15px;
+    margin: 1.2rem auto;
+    width: 90%;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.25);
+  }
+
+  h2 {
+    font-size: 1.8rem;
+    text-align: center;
+  }
+
+  p {
+    font-size: 1.1rem;
+    line-height: 1.5;
+  }
+
+  .button-group {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  button {
+    padding: 0.8rem 1rem;
+    font-size: 1rem;
+    width: 100%;
+  }
+
+  .signature {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  .passion-effect {
+    font-size: 2rem;
+    right: 10px;
+    bottom: 10px;
+  }
+
+  .scene-effect {
+    font-size: 2rem;
+  }
+
+  .replay-btn {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+  }
+}
