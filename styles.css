@@ -424,10 +424,10 @@ button.hot {
 
 /* player */
 .glass-button {
-  margin-top: 30px;
+  margin-top: 7rem;
   padding: 12px 35px;
   font-size: 1.1rem;
-  font-weight: 500;
+  font-weight: 700;
   border: none;
   border-radius: 30px;
   background: rgba(255, 255, 255, 0.15);
@@ -435,6 +435,7 @@ button.hot {
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1);
+display: flex;
   cursor: pointer;
   transition: all 0.3s ease;
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
