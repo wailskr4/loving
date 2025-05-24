@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Une journée avec toi, Nesrine 💖</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+ <link href="styles.css" rel="stylesheet">
+
+</head>
+<body>
+  <div class="floating-hearts" id="hearts"></div>
+  <div class="container" id="game">
+    <h2>Honey 💕</h2>
+    <p>Aujourd'hui, tu vis une journée magique avec Wail. Prête à commencer ?</p>
+    <button onclick="startStory()">Oui, je suis prête !</button>
+  </div>
+
+<script>
+  const gameDiv = document.getElementById('game');
+  const heartsContainer = document.getElementById('hearts');
+
+  function fadeOutAndChange(content) {
+    gameDiv.style.animation = 'fadeOut 0.5s ease-out';
+    setTimeout(() => {
+      gameDiv.innerHTML = content;
+      gameDiv.style.animation = 'fadeIn 0.5s ease-out';
+      createFloatingHearts(20); // Ajoute des coeurs flottants
+    }, 700);
+  }
+
+  function createFloatingHearts(count) {
+    for (let i = 0; i < count; i++) {
+      const heart = document.createElement('div');
+      heart.className = 'heart';
+      heart.innerHTML = '❤';
+      heart.style.left = Math.random() * 80 + 10 + '%';
+      heart.style.bottom = '-20px';
+      heart.style.color = ['#ff6f61', '#ffb8b8', '#ffd3d3', '#ffffff'][Math.floor(Math.random() * 4)];
+      heart.style.animationDelay = Math.random() * 2 + 's';
+      heart.style.fontSize = (Math.random() * 15 + 10) + 'px';
+      heartsContainer.appendChild(heart);
+      
+      // Supprime le coeur après l'animation
+      setTimeout(() => {
+        heart.remove();
+      }, 6000);
+    }
+  }
+
+  function startStory() {
+    const content = `
+      <h2>☀️ Matin doux</h2>
+      <p>Tu te réveilles dans les bras de Wail. Il te chuchote : "Que veux-tu faire ce matin mon amour ?"</p>
+      <div class="button-group">
+        <button onclick="chooseBrunch()">Aller prendre lftor  </button>
+        <button onclick="chooseCuddle()">Rester au lit 💞</button>
+      </div>
+    `;
+    fadeOutAndChange(content);
+  }
+
+  function chooseBrunch() {
+    const content = `
+      <h2>🥐 Brunch romantique</h2>
+      <p>Vous sortez prendre un délicieux brunch en terrasse. Le soleil brille, les oiseaux chantent, et Wail t'offre une petite fleur cueillie sur le chemin 🌼</p>
+      <div class="button-group">
+        <button onclick="aprem1()">Continuer la journée 🌸</button>
+      </div>
+      <div class="scene-effect">🌞</div>
+    `;
+    fadeOutAndChange(content);
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    function onpréparelghda() {
+      gameDiv.innerHTML = `
+        <h2>Nesrine a choisi maison </h2>
+        <p>on prépare tout ici omri, hka le soir on sort aprem chbab, nesrine commence les prep et wail continue le travail....  </p>
+        <button onclick="aprem1()">plus tard l'aprem </button>
+
+      `;
+fadeOutAndChange(content);
+    }
+    function aprem1() {
+      gameDiv.innerHTML = `
+        <h2>later after l'aprem </h2>
+        <p>wail est nesrine discute de leur aprem que faire il commence a planifié voici leur plans </p>
+        <button onclick="planA()"> PLans A</button>
+<button onclick="planB()"> PLans B</button>
+
+      `;
+fadeOutAndChange(content);
+    }
+
+    function continuersortie() {
+      gameDiv.innerHTML = `
+        <h2>Nesrine a choisi sortie </h2>
+        <p>oui wail rajli on sort ndoro, n9diw ou njiw youma ndiro mixte entre traditionel constantine et tlemcen checkchoukha et 7rira, bourek et salade et jus nature  </p>
+        <button onclick="aprem1()">puis habibi nro7o restaurant chwa </button>
+
+      `;
+fadeOutAndChange(content);
+    }
+
+        function planB() {
+      gameDiv.innerHTML = `
+        <h2>on reste a la maison </h2>
+        <p>On veut resté a la maison et faire divers activité entre jeux cuddle, et méme la sieste </p>
+        <button onclick="soiré1()"> Soiré 1</button>
+<button onclick="soiré2()"> Soiré 2</button>
+
+      `;
+  fadeOutAndChange(content);
+    }
+
+    function planA() {
+      gameDiv.innerHTML = `
+        <h2>il ont pris plan a </h2>
+        <p>wail et nesrine on décidé de prendre la voiture et d'exploré des nouveau endroit a constantine, essaye des nouveau patisserie, allez au ritaj et acheté ce que wail et nesrine a attiré leur regards , l'aprem passe magnfiqiue et il commence la soiré </p>
+        <button onclick="soiré1()"> Soiré1</button>
+
+
+      `;
+  fadeOutAndChange(content);
+    }
+
+
+
+  function chooseCuddle() {
+    const content = `
+      <h2>💖 Matin câlin</h2>
+      <p>Vous restez blottis dans les draps, à parler de vos rêves, vos souvenirs et à rigoler comme deux amoureux. C'est doux, paisible et parfait.</p>
+      <div class="button-group">
+        <button onclick="startlove()" class="pulse">On commence à se rapprocher 🌸</button>
+      </div>
+    `;
+    fadeOutAndChange(content);
+  }
+function Lit() {
+      gameDiv.innerHTML = `
+        <h2>dans le lit</h2>
+        <p>Souffle chaud , regarde intense , il commence a se touché chaudement leur corps reunie leur main explorons le corps il commence leur activity favortie aujourdhui wail nesrine comme dessert 🔥💖 </p>
+        <button onclick="latersecs()"> aprés un moment intense </button>
+
+      `;
+ fadeOutAndChange(content);
+    }
+    function continuerbisou() {
+      gameDiv.innerHTML = `
+        <h2>💖 nos levré se collent et nos souffle devient chaud</h2>
+        <p>nesrine commence a caréssé le corps de wail et wail mets ca main sur ces seins, le bisou devient profond et il commence a sucé ces lévre rose , nesrine répons on lechons et il continue jusq'ua ce que le bisou devient chaud et il se sucent la langue</p>
+        <button onclick="continuerbisou2()">je te veux 🌸</button>
+      `;
+fadeOutAndChange(content);
+    }
+        function continuerbisou2() {
+      gameDiv.innerHTML = `
+        <h2>💖 le regarde se croisent</h2>
+        <p>il n'arrive plus a se retenir et il commence a le faire se mettons dans des poistion spécial , explorons chaque partie de l'un de l'autre il conclue ce début de journé par une maniére des plus sensuel puis... </p>
+        <button onclick="makelunch()"> il décide de continué la journé 🌸</button>
+      `;
+fadeOutAndChange(content);
+    }
+    
+    
+    function finirlebaiser() {
+      gameDiv.innerHTML = `
+        <h2>Les sensation sont magnifique </h2>
+        <p>on se frote nos corps et on commence a s'embrassé plus chaudement et on s'echange nos salive, aprés un bon moment on commence a prendre la décision de : </p>
+        <button onclick="chooseBrunch()">on va prendre le ftor dehors </button>
+        <button onclick="makelunch()">on le fais a la maison </button>
+      `;
+fadeOutAndChange(content);
+    }
+
+    function makelunch() {
+      gameDiv.innerHTML = `
+        <h2>on se leve de nos lit </h2>
+        <p>main dans la main on y va vers la cuisine prépârons notre coffee , nesrine mon amoureuse tu veux quoi avec  : </p>
+        <button onclick="havemacaron()">hm...Habibi je prend  </button>
+        <button onclick="waillunch()"> je te laisse choisir </button>
+      `;
+
+    }
+
+    function havemacaron() {
+      gameDiv.innerHTML = `
+        <h2>Nesrine prend ca décision </h2>
+        <p>avec un jolie sourire , nesrine mets ca main sur mon visage : habibi je veux macarons , et gauffre avec le coffée et on y va vers le balcon </p>
+        <button onclick="continuer()">direction balcon  </button>
+       
+      `;
+
+    }
+    function waillunch() {
+      gameDiv.innerHTML = `
+        <h2>A toi de voir omri </h2>
+        <p>alors je décide de prendre bébé macaron , et tes brownies avec chocolat chaud au lieux coffee </p>
+        <button onclick="continuer()">direction balcon  </button>
+       
+      `;
+
+    }
+        function soiré2() {
+      gameDiv.innerHTML = `
+        <h2>Wail est nesrine</h2>
+        <p> on décidé de commandé la nourriture a l'éxteruier et profitez d'un bon moment de repos </p>
+        <button onclick="terminus1()"> aprés le diner </button>
+ <button onclick="terminus2()"> aprés le diner (2) </button>
+      `;
+ fadeOutAndChange(content);
+    }
+    function soiré1() {
+      gameDiv.innerHTML = `
+        <h2>aprés leur retour</h2>
+        <p>wail et nesrine commence a préparé le dinner traditionel que il on choisi comme plans entre mélange de coulutre , mais aussi mélangé d'amour car ya pas des moment ou ces deux ne veulent pas se mangé </p>
+        <button onclick="terminus1()"> aprés le diner </button>
+ <button onclick="terminus2()"> aprés le diner (2) </button>
+      `;
+fadeOutAndChange(content);
+    }
+    function continuer() {
+      gameDiv.innerHTML = `
+        <h2>aprés les prep il se dirige vers le balcon </h2>
+        <p>wail ydir sourire lnesrine as usual achrbi de ma tasse bh yji 7low bébé, et il parle de leur amour, plans a venir, et que faire aprés la journée nesrine omri :  </p>
+        <button onclick="continuersortie()">on sort ? n9diw l3chana ou njibo lghda bra </button>
+       <button onclick="onpréparelghda()">on prépare lghda et wail continue travail pc </button>
+      `;
+fadeOutAndChange(content);
+    }
+
+
+
+
+
+
+
+            function terminus2() {
+      gameDiv.innerHTML = `
+        <h2>Que va t'on faire ?</h2>
+        <p> pourquoi ne pas prendre une soiré film et jeux bébé ? Nesrine sourit de joié et ajouté puis on termine dans la salle de bain avant de dormir </p>
+<button onclick="latersecs()"> Aprés cette belle soiré </button>
+      `;
+fadeOutAndChange(content);
+    }
+    function terminus1() {
+      gameDiv.innerHTML = `
+        <h2>aprés le diner</h2>
+        <p>Wail et Nesrine commence leur soiré jeux, puis spa, puis danse un mixte de tout car leur moment cs des moment tellement magnifique , puis vient le moment du Lit </p>
+        <button onclick="Lit()"> dans le lit </button>
+
+      `;
+ fadeOutAndChange(content);
+    }
+  function startlove() {
+    const content = `
+      <h2>💖 Les regards se croisent</h2>
+      <p>L'envie augmente 🔥<br>On commence à se toucher le visage et s'embrasser, Wail te mord sur tes lèvres et tu mets ta main sur sa poitrine. On se laisse emporter par le baiser et en chaleur...</p>
+      <div class="button-group">
+        <button onclick="continuerbisou()" class="hot">Le baiser devient chaud 🌸</button>
+        <button onclick="finirlebaiser()">Un dernier pour la route</button>
+      </div>
+      <div class="heart-pulse">💗</div>
+    `;
+    fadeOutAndChange(content);
+  }
+
+  function continuerbisou() {
+    const content = `
+      <h2>💖 Nos lèvres se collent</h2>
+      <p>Nesrine commence à caresser le corps de Wail et Wail met sa main sur tes seins. Le bisou devient profond et il commence à sucer tes lèvres roses. Nesrine répond en léchant et il continue jusqu'à ce que le baiser devienne brûlant...</p>
+      <div class="button-group">
+        <button onclick="continuerbisou2()" class="hot">Je te veux 🌸</button>
+      </div>
+      <div class="passion-effect">🔥</div>
+    `;
+    fadeOutAndChange(content);
+  }
+
+  function continuerbisou2() {
+    const content = `
+      <h2>💖 ca chauffe 🔥</h2>
+      <p>Il n'arrive plus à se retenir et vous commencez à explorer chaque partie de l'un et l'autre dans des positions spéciales... Vous concluez ce début de journée de la manière la plus sensuelle puis...</p>
+      <div class="button-group">
+        <button onclick="makelunch()">Continuer la journée 🌸</button>
+      </div>
+    `;
+    fadeOutAndChange(content);
+  }
+
+  function finirlebaiser() {
+    const content = `
+      <h2>Les sensations sont magnifiques</h2>
+      <p>On se frotte nos corps et on commence à s'embrasser plus chaudement, échangeant nos salives. Après un bon moment, on décide de :</p>
+      <div class="button-group">
+        <button onclick="chooseBrunch()">Prendre le ftor dehors</button>
+        <button onclick="makelunch()">Le faire à la maison</button>
+      </div>
+    `;
+    fadeOutAndChange(content);
+  }
+
+    function latersecs() {
+      gameDiv.innerHTML = `
+        <h2>On concluons leur sceance </h2>
+        <p>nesrine mets wail dans ces bras et wail se relaxe fi sadr nesrine , leur amour na pas de limite il ferme cette journé avec un profond baisé </p>
+        <button onclick="endLove()"> 💖fin.💖 </button>
+
+      `;
+    fadeOutAndChange(content);
+    createFireworks();
+    }
+  // ... [Les autres fonctions restent similaires mais utilisent fadeOutAndChange] ...
+
+  function endLove() {
+    const content = `
+      <div class="final-screen">
+        <h2>🌹 Fin de la journée</h2>
+        <p>Peu importe les choix, chaque instant passé avec toi est un cadeau. Merci d'être la femme de ma vie, Nesrine. 💖</p>
+        <p class="signature">- Ton Wail</p>
+        <button onclick="startStory()" class="replay-btn">Rejouer ❤️</button>
+      </div>
+      <div class="fireworks"></div>
+    `;
+    fadeOutAndChange(content);
+    createFireworks();
+  }
+
+
+
+
+  function createFireworks() {
+    // Création d'effets de feu d'artifice pour la fin
+    for (let i = 0; i < 20; i++) {
+      setTimeout(() => {
+        const firework = document.createElement('div');
+        firework.className = 'firework';
+        firework.style.left = Math.random() * 100 + '%';
+        firework.style.top = Math.random() * 100 + '%';
+        firework.style.color = ['#ff6f61', '#ffb8b8', '#ffd3d3', '#ffffff'][Math.floor(Math.random() * 4)];
+        document.querySelector('.final-screen').appendChild(firework);
+        
+        setTimeout(() => {
+          firework.remove();
+        }, 1000);
+      }, i * 300);
+    }
+  }
+      window.onload = function() {
+      setupButtonEvents();
+      createFloatingHearts(5);
+    };
+</script>
+
+
+</body>
+</html>
