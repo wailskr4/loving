@@ -52,12 +52,26 @@
       <h2>☀️ Matin doux</h2>
       <p>Tu te réveilles dans les bras de Wail. Il te chuchote : "Que veux-tu faire ce matin mon amour ?"</p>
       <div class="button-group">
-        <button onclick="chooseBrunch()">Aller prendre lftor  </button>
+        <button onclick="commentleprendre()">Aller prendre lftor  </button>
         <button onclick="chooseCuddle()">Rester au lit 💞</button>
       </div>
     `;
     fadeOutAndChange(content);
   }
+
+function commentleprendre() {
+    const content = `
+      <h2>🧇 Tu préfères bébé ?</h2>
+      <p> Que on le prépare a la maison ? ou tu préfères le prendre dehors ? </p>
+      <div class="button-group">
+        <button onclick="makelunch()"> on le fais ici omri 🍳</button>
+<button onclick="chooseBrunch()"> Tu préfère sortir ❤️😁</button>
+      </div>
+      <div class="scene-effect">🌞</div>
+    `;
+    fadeOutAndChange(content);
+  }
+
 
   function chooseBrunch() {
     const content = `
