@@ -9,12 +9,28 @@
 
 </head>
 <body>
+  <!-- Effets visuels -->
   <div class="floating-hearts" id="hearts"></div>
-<div class="container" id="game">
-  <h2>Honey 💕</h2>
-  <p>Aujourd'hui, tu vis une sortie magique avec Wail. Prête à commencer ?</p>
-  <button onclick="startStory()">Oui, je suis prête !</button>
-</div>
+  <div class="romantic-effect">🌹</div>
+  <div class="love-particle"></div>
+
+  <!-- Contenu principal -->
+  <div class="container" id="game">
+    <h2>Honey <span class="passion-effect">💕</span></h2>
+    
+    <div class="content-wrapper">
+      <p>Aujourd'hui, tu vis une sortie magique avec Wail. Prête à commencer ?</p>
+      
+      <div class="button-group">
+        <button class="glass-button pulse" onclick="startStory()">
+          <span class="btn-content">
+            Oui, je suis prête ! 
+            <span class="heart-float">💖</span>
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
 <script>
   const gameDiv = document.getElementById('game');
   const heartsContainer = document.getElementById('hearts');
