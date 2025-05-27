@@ -37,6 +37,35 @@
   <button id="toggleMusicBtn" onclick="toggleAudio()" style="margin-top: 20px;">Désactiver Musique</button>
 
   <script>
+    // Add this within your existing <script> tags
+document.addEventListener('DOMContentLoaded', () => {
+    // Function to create and animate a single love particle
+    function createLoveParticle() {
+        const particle = document.createElement('div');
+        particle.className = 'love-particle';
+        // Random start position within a reasonable range
+        const startX = Math.random() * window.innerWidth;
+        const startY = Math.random() * window.innerHeight;
+        particle.style.left = `${startX}px`;
+        particle.style.top = `${startY}px`;
+
+        // Random end position for animation (using CSS variables)
+        const endX = (Math.random() - 0.5) * 400; // -200 to 200px from start
+        const endY = (Math.random() - 0.5) * 400; // -200 to 200px from start
+        particle.style.setProperty('--x', `${endX}px`);
+        particle.style.setProperty('--y', `${endY}px`);
+
+        document.body.appendChild(particle);
+
+        // Remove particle after its animation
+        particle.addEventListener('animationend', () => {
+            particle.remove();
+        });
+    }
+
+    // Emit a new particle every X milliseconds
+    setInterval(createLoveParticle, 800); // Adjust frequency as desired
+});
     const gameDiv = document.getElementById('game');
     const romanticAudio = document.getElementById('romanticAudio');
     const toggleMusicBtn = document.getElementById('toggleMusicBtn');
@@ -619,6 +648,7 @@
         }, i * 300);
       }
     }
+    
   </script>
 </body>
 </html>
