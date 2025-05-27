@@ -10,7 +10,7 @@
 </head>
 <body>
   <!-- Effets visuels -->
-  <div class="floating-hearts" id="hearts"></div>
+
   <div class="romantic-effect">🌹</div>
   <div class="love-particle"></div>
 
@@ -606,20 +606,7 @@ function endLove() {
   
     };
 
-  function createHearts() {
-  const heartsContainer = document.getElementById('hearts');
-  for (let i = 0; i < 10; i++) {
-    const heart = document.createElement('div');
-    heart.className = 'heart';
-    heart.innerHTML = '💖';
-    heart.style.left = Math.random() * 100 + '%';
-    heart.style.animationDelay = Math.random() * 2 + 's';
-    heartsContainer.appendChild(heart);
-  }
-}
-  window.addEventListener('DOMContentLoaded', () => {
-  createHearts();
-  document.querySelector('.container').style.transform = 'perspective(1000px)';
+
 });
 </script>
 
