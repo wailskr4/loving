@@ -50,7 +50,8 @@ function startStory() {
   const content = `
     <h2>☀️ On y va bébé</h2>
     <p>Le soleil brille sur Constantine, l’ambiance est parfaite. Que veux-tu faire aujourd’hui Nesrine ?</p>
-    <p> <b> Nesrine y songe un moment et tu choisi omri : </b> </P
+   <p><b>Nesrine y songe un moment et tu choisis, omri :</b></p>
+
     <div class="button-group">
       <button onclick="scene1()">Pont Sidi M'Cid 🌉</button>
       <button onclick="scene2()">Musée Cirta 🖼️</button>
@@ -77,12 +78,124 @@ function scene2() {
     <h2>🖼️ Musée Cirta</h2>
     <p>On explore ensemble les trésors d’histoire et d’art.</p>
     <div class="button-group">
-      <button onclick="scene6()">Parlons de nos œuvres préférées 💬</button>
+      <button onclick="scene20()">Parlons de nos œuvres préférées 💬</button>
       <button onclick="scene7()">Pause café dans le jardin du musée ☕</button>
     </div>
   `;
   fadeOutAndChange(content);
 }
+function scene20() {
+  const content = `
+    <h2>🖼️ Nos œuvres préférées</h2>
+    <p>Nous partageons nos impressions sur les œuvres d'art et les artefacts historiques. Ton regard émerveillé me fait fondre.</p>
+    <div class="button-group">
+      <button onclick="scene21()">Continuer vers Sidi Mabrouk 🌳</button>
+      <button onclick="scene22()">Pause café dans le jardin du musée ☕</button>
+    </div>
+  `;
+  fadeOutAndChange(content);
+}
+function scene21() {
+  const content = `
+    <h2>☕ Pause détente</h2>
+    <p>Assis dans le jardin du musée, nous savourons un café en discutant de nos découvertes. Un moment paisible et complice.</p>
+    <div class="button-group">
+      <button onclick="scene23()">Se diriger vers Sidi Mabrouk 🌳</button>
+      <button onclick="scene24()">Visiter une boutique d'artisanat 🛍️</button>
+    </div>
+  `;
+  fadeOutAndChange(content);
+}
+function scene22() {
+  const content = `
+    <h2>🌳 Balade à Sidi Mabrouk</h2>
+    <p>Nous flânons dans les ruelles de Sidi Mabrouk, admirant l'architecture traditionnelle et l'ambiance chaleureuse du quartier.</p>
+    <div class="button-group">
+      <button onclick="scene25()">Découvrir une boutique de vêtements traditionnels 👗</button>
+      <button onclick="scene26()">Prendre un thé dans un café local 🍵</button>
+    </div>
+  `;
+  fadeOutAndChange(content);
+}
+function scene23() {
+  const content = `
+    <h2>🛍️ Découverte artisanale</h2>
+    <p>Nous explorons une boutique d'artisanat, émerveillés par les objets faits main. Tu choisis un souvenir pour immortaliser cette journée.</p>
+    <div class="button-group">
+      <button onclick="scene27()">Continuer vers le centre commercial Magic House 🛒</button>
+      <button onclick="scene28()">Retour au musée pour une dernière visite 🖼️</button>
+    </div>
+  `;
+  fadeOutAndChange(content);
+}
+function scene24() {
+  const content = `
+    <h2>👗 Essayages élégants</h2>
+    <p>Tu essaies des tenues traditionnelles, rayonnante dans chaque tenue. Je suis sous le charme.</p>
+    <div class="button-group">
+      <button onclick="scene29()">Se rendre au centre commercial Magic House 🛒</button>
+      <button onclick="scene30()">Détente dans un salon de thé 🍰</button>
+    </div>
+  `;
+  fadeOutAndChange(content);
+}
+
+  function scene25() {
+  const content = `
+    <h2>🍵 Pause thé</h2>
+    <p>Dans un café typique, nous dégustons un thé à la menthe, bercés par la musique locale et l'ambiance conviviale.</p>
+    <div class="button-group">
+      <button onclick="scene31()">Direction le centre commercial Magic House 🛒</button>
+      <button onclick="scene20()">Retour au musée pour une dernière visite 🖼️</button>
+    </div>
+  `;
+  fadeOutAndChange(content);
+}
+function scene26() {
+  const content = `
+    <h2>🛒 Shopping au Magic House</h2>
+    <p>Nous explorons les allées du centre commercial Magic House, profitant des boutiques variées et des animations festives.</p>
+    <div class="button-group">
+      <button onclick="scene32()">Dîner dans un restaurant du centre 🍽️</button>
+      <button onclick="scene33()">Participer à une tombola 🎁</button>
+    </div>
+  `;
+  fadeOutAndChange(content);
+}
+
+  function scene27() {
+  const content = `
+    <h2>🍽️ Dîner romantique</h2>
+    <p>Nous savourons un délicieux repas dans un restaurant du centre commercial, échangeant des regards complices.</p>
+    <button onclick="endLove()">Clôturer cette journée magique ❤️</button>
+  `;
+  fadeOutAndChange(content);
+}
+
+  function scene28() {
+  const content = `
+    <h2>🎁 Surprise gagnante</h2>
+    <p>Nous participons à une tombola et remportons un cadeau inattendu, ajoutant une touche de magie à notre journée.</p>
+    <button onclick="endLove()">Finir la journée en beauté 💖</button>
+  `;
+  fadeOutAndChange(content);
+}
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
 
 function scene3() {
   const content = `
@@ -101,13 +214,13 @@ function scene4() {
   const content = `
     <h2>📸 Selfie réussi !</h2>
     <p>Tu es splendide 7abobti *-* j'adore ton visage souriant et tes yeux j'adore my perdre bébé on continue </p>
-    <button onclick="scene41()">m'embrassé  ❤️</button>
+    <button onclick="scene41()">m'embrassé 💋​ ❤️</button>
   `;
   fadeOutAndChange(content);
 }
 function scene41() {
   const content = `
-    <h2>Nesrine prend l'appreil de ma main est m'embrasse tendrement</h2>
+    <h2>Nesrine prend l'appreil de ma main est m'embrasse tendrement 💋​</h2>
     <p>Merci 3iniya allez zine on continue  </p>
     <button onclick="scene42()">Direct centre ville ❤️</button>
     <button onclick="scene43()">Direct Ritaj mall ❤</button>
@@ -237,25 +350,20 @@ function scene5() {
   const content = `
     <h2>🏘️ La Casbah de Constantine</h2>
     <p>Ruelles anciennes, maisons pleines d’histoires... On se perd dans le temps.</p>
-    <button onclick="endLove()">Une journée parfaite 💞</button>
+     <div class="button-group">
+    <button onclick="scene21()">bébé continuous vers sidi mabrouk  💞</button>
+<button onclick="scene44()">bébé continuous vers du Palais Ahmed Bey 💞</button>
+    </div>
   `;
   fadeOutAndChange(content);
 }
 
-function scene6() {
-  const content = `
-    <h2>🎨 Moments de partage</h2>
-    <p>On parle des œuvres qui nous touchent le plus. Nos cœurs battent ensemble.</p>
-    <button onclick="endLove()">Quitter le musée, main dans la main 🥰</button>
-  `;
-  fadeOutAndChange(content);
-}
 
 function scene7() {
   const content = `
     <h2>☕ Pause café</h2>
     <p>On se regarde, on sourit, et le monde autour s’efface.</p>
-    <button onclick="endLove()">Sortir et flâner dans les ruelles 💑</button>
+    <button onclick="endLove()">Sortir et flâner dans les ruelles puis on veut la maison faire une soiré unique 💑</button>
   `;
   fadeOutAndChange(content);
 }
@@ -264,21 +372,210 @@ function scene8() {
   const content = `
     <h2>📖 Poème</h2>
     <p>Je lis pour toi un poème que j’ai écrit. Tes yeux brillent.</p>
-    <button onclick="endLove()">On s’allonge côte à côte 🌿</button>
+    <button onclick="scene80()">On s’allonge côte à côte 🌿</button>
+  `;
+  fadeOutAndChange(content);
+}
+function scene80() {
+  const content = `
+    <h2>🎵 Puis mratie allume la musique </h2>
+    <p>Haya hamouda temps de denser </p>
+    <button onclick="scene81()">hhhh oui zine on y va  💃🕺</button>
+  `;
+  fadeOutAndChange(content);
+}
+function scene81() {
+  const content = `
+    <h2>🎵 aprés ce session de jeux  </h2>
+    <p>aprés que nesrine et wail se sont montré wa7d my3rf  ychta7 :) il décide de joué </p>
+    <div class="button-group">
+    <button onclick="scene82()">baby lets go to yes mall</button>
+    </div >
+  `;
+  fadeOutAndChange(content);
+}
+function scene82() {
+  const content = `
+   <h2>👗 Essayages élégants</h2>
+    <p>Tu essaies des tenues moderne , puis tu choisi pour ton homme </p>
+    <div class="button-group">
+      <button onclick="scene29()">Se rendre au centre commercial Magic House 🛒</button>
+      <button onclick="scene83()">bébé je veux une nuit spécial dans un hotel 🏢</button>
+    </div>
   `;
   fadeOutAndChange(content);
 }
 
+function scene83() {
+  const content = `
+   <h2>Direction l'hotel 🏢</h2>
+    <p>aprés une bonne session de shopping wail est nesrine vont vers l'hotel une fois dans la chambre</p>
+    <div class="button-group">
+
+      <button onclick="scene84()">Prendre douche et préparé pour nuit amour, film </button>
+    </div>
+  `;
+  fadeOutAndChange(content);
+}
+
+function scene84() {
+  const content = `
+   <h2>la nuit tombe</h2>
+    <p>wail est nesrine ce mette dans l'humeur amour et ce rappel le passé et tout les moment qui on conduis a cette evenement</p>
+    <div class="button-group">
+
+      <button onclick="endLove()">L'envie auguemente , le baisé ce chauffe on le fais omri avant la fin</button>
+    </div>
+  `;
+  fadeOutAndChange(content);
+}
+
+
+
+
+
+  
 function scene9() {
   const content = `
     <h2>🧺 Pique-nique</h2>
     <p>On partage un repas simple mais rempli d’amour. Un moment suspendu.</p>
-    <button onclick="endLove()">Regarder le ciel et rêver 💭</button>
+    <button onclick="scene10()">Wail allons vers sétif 💭</button>
   `;
   fadeOutAndChange(content);
 }
 
+function scene10() {
+  const content = `
+    <h2>🧺 Pique-nique</h2>
+    <p>On partage un repas simple mais rempli d’amour. Un moment suspendu.</p>
+       <div class="button-group">
+    <button onclick="scene11()">on explore le mall de sétif </button>
+    <button onclick="scene12()">éxplorons sétif bébé </button>
+  `;
+  fadeOutAndChange(content);
+}
+function scene11() {
+  const content = `
+  <h2>🛍️ Exploration du Mall de Sétif</h2>
+  <p>Nous flânons dans les allées du mall, découvrant des boutiques locales et internationales. Un endroit idéal pour une petite pause shopping.</p>
+  <div class="button-group">
+    <button onclick="scene12()">Découvrir un restaurant local</button>
+    <button onclick="scene13()">Faire une pause café</button>
+  </div>
+`;
+fadeOutAndChange(content);
+}
 
+function scene12() {
+  const content = `
+   <h2>🍽️ Dîner à Sétif</h2>
+  <p>Nous choisissons un restaurant local pour savourer des plats traditionnels. Le cadre est chaleureux et l'ambiance conviviale.</p>
+  <div class="button-group">
+    <button onclick="scene14()">Continuer la visite de Sétif</button>
+    <button onclick="scene15()">Retourner à Constantine</button>
+  </div>
+`;
+fadeOutAndChange(content);
+}
+function scene13() {
+  const content = `
+    <h2>☕ Pause café</h2>
+  <p>Nous nous installons dans un café local, dégustant une boisson chaude tout en observant la vie animée autour de nous.</p>
+  <div class="button-group">
+    <button onclick="scene14()">Explorer les environs</button>
+    <button onclick="scene15()">Retourner à Constantine</button>
+  </div>
+`;
+fadeOutAndChange(content);
+}
+function scene14() {
+  const content = `
+  <h2>🏛️ Découverte culturelle</h2>
+  <p>Nous visitons un musée local, découvrant l'histoire et la culture de Sétif à travers ses expositions.</p>
+  <div class="button-group">
+    <button onclick="scene16()">Se rendre au parc d'attractions</button>
+    <button onclick="scene17()">Retourner au centre commercial</button>
+  </div>
+`;
+fadeOutAndChange(content);
+}
+
+function scene15() {
+  const content = `
+  <h2>🚗 Retour à Constantine</h2>
+  <p>Nous prenons la route du retour, discutant de nos moments préférés de la journée et planifiant notre prochaine aventure.</p>
+  <button onclick="endLove()">Fin de la journée</button>
+`;
+fadeOutAndChange(content);
+}
+function scene16() {
+  const content = `
+  <h2>🎢 Parc d'attractions</h2>
+  <p>Nous passons l'après-midi à nous amuser dans le parc, essayant différentes attractions et partageant des rires.</p>
+  <div class="button-group">
+    <button onclick="scene18()">Dîner au parc</button>
+    <button onclick="scene19()">Retourner à l'hôtel</button>
+  </div>
+`;
+fadeOutAndChange(content);
+}
+function scene17() {
+  const content = `
+  <h2>🛍️ Retour au centre commercial</h2>
+  <p>Nous retournons au centre commercial pour acheter quelques souvenirs et profiter de l'ambiance animée.</p>
+  <div class="button-group">
+    <button onclick="scene18()">Dîner au centre commercial</button>
+    <button onclick="scene19()">Retourner à l'hôtel</button>
+  </div>
+`;
+fadeOutAndChange(content);
+}
+ function scene18() {
+  const content = `
+  <h2>🍴 Dîner au parc</h2>
+  <p>Nous dégustons un repas dans l'un des restaurants du parc, profitant de la vue et de l'atmosphère festive.</p>
+  <div class="button-group">
+    <button onclick="scene19()">Retourner à l'hôtel 🏢​</button>
+    <button onclick="scene15()">Retourner à Constantine ​🌇​</button>
+  </div>
+`;
+fadeOutAndChange(content);
+} 
+ function scene19() {
+  const content = `
+  <h2>🏨 Retour à l'hôtel</h2>
+  <p>Nous rentrons à l'hôtel pour une soirée asseé spécial aprés tout ces beau moment </p>
+  <button onclick="MakeLove()">préparé la chambre ❤️</button>
+`;
+} 
+
+ function MakeLove() {
+  const content = `
+  <h2>une fois a la chambre  ❤️</h2>
+  <p>on finnisson les prep , wail est nesrine prenne un bon bain chaud l'un éclipse la main sur la partie de l'autre réclamons l'un lautre ❤️ </p>
+  <p>tout s'accélere et on finnisent la douche, pour continue sur le lit , le silence reigne mais ya q'un bruit l'amour profond échange 🔥​🔥​ </p>
+  <button onclick="endLove()">conclure </button>
+`;
+} 
+  
+
+
+
+
+
+
+  
+
+
+  
+function endLove() {
+  const content = `
+    <h2>❤️ Fin de cette journée magique</h2>
+    <p>De Sidi M'Cid à Ritaj Mall, chaque instant avec toi a été un trésor. Ce n'est que le début de notre belle histoire.</p>
+    <button onclick="startStory()">Revivre l’aventure ✨</button>
+  `;
+  fadeOutAndChange(content);
+}
 
 
 
