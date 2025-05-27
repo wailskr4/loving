@@ -1,74 +1,81 @@
+/* Importation de la police élégante pour les titres */
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+
 /* General Body and Font Styling */
 body {
     font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background: linear-gradient(135deg, #f7cac9 0%, #ffc0cb 100%); /* Soft pink gradient */
+    background: linear-gradient(135deg, #f7cac9 0%, #ffc0cb 100%);
     color: #333;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
     align-items: center;
     justify-content: center;
-    overflow-x: hidden; /* Prevent horizontal scroll */
-    position: relative; /* For romantic effects positioning */
+    overflow-x: hidden;
+    position: relative;
 }
 
 /* Container for the story content */
 .container {
-    background: rgba(255, 255, 255, 0.2); /* Semi-transparent white for glass effect */
+    background: rgba(255, 255, 255, 0.2);
     border-radius: 20px;
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37); /* Stronger shadow for depth */
-    backdrop-filter: blur(10px); /* Glass effect blur */
-    -webkit-backdrop-filter: blur(10px); /* Safari support */
-    border: 1px solid rgba(255, 255, 255, 0.18); /* Subtle border */
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
     padding: 30px;
     margin: 20px;
-    max-width: 700px; /* Max width for larger screens */
-    width: 90%; /* Responsive width */
+    max-width: 700px;
+    width: 90%;
     text-align: center;
     position: relative;
-    z-index: 10; /* Ensure content is above effects */
-    animation: fadeIn 1s ease-in-out; /* Initial fade in for the container */
+    z-index: 10;
+    animation: fadeIn 1s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+
+.container:hover {
+    box-shadow: 0 12px 40px rgba(31, 38, 135, 0.45);
+    transform: scale(1.01);
 }
 
 h2 {
-    color: #e91e63; /* Deep pink for headings */
+    font-family: 'Great Vibes', cursive;
+    color: #e91e63;
     font-weight: 600;
     margin-bottom: 20px;
-    font-size: 2.2em; /* Larger headings */
+    font-size: 2.2em;
     text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+    transition: all 0.3s ease-in-out;
 }
 
 p {
     font-size: 1.1em;
     line-height: 1.6;
     margin-bottom: 25px;
+    animation: fadeSlideIn 1s ease-in-out;
+    transition: all 0.3s ease-in-out;
 }
 
 /* Text effects */
 .passion-effect {
-    color: #ff4081; /* Brighter pink */
+    color: #ff4081;
     animation: pulseText 1.5s infinite alternate;
 }
 
 @keyframes pulseText {
-    from {
-        transform: scale(1);
-        opacity: 1;
-    }
-    to {
-        transform: scale(1.05);
-        opacity: 0.9;
-    }
+    from { transform: scale(1); opacity: 1; }
+    to { transform: scale(1.05); opacity: 0.9; }
 }
 
 /* Button Group */
 .button-group {
     display: flex;
     flex-direction: column;
-    gap: 15px; /* Space between buttons */
+    gap: 15px;
     margin-top: 30px;
 }
 
@@ -90,13 +97,13 @@ p {
     align-items: center;
     justify-content: center;
     position: relative;
-    overflow: hidden; /* For hover effects */
+    overflow: hidden;
 }
 
 .glass-button:hover {
     background: rgba(255, 255, 255, 0.4);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    transform: translateY(-3px); /* Lift effect on hover */
+    transform: translateY(-3px);
 }
 
 .glass-button:active {
@@ -104,7 +111,6 @@ p {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-/* Specific Button Animations */
 .glass-button.pulse {
     animation: pulseButton 2s infinite ease-in-out;
 }
@@ -113,6 +119,24 @@ p {
     0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 64, 129, 0.7); }
     70% { transform: scale(1.03); box-shadow: 0 0 0 15px rgba(255, 64, 129, 0); }
     100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 64, 129, 0); }
+}
+
+/* Effet lumière glissante */
+.glass-button::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -75%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(120deg, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0.1) 100%);
+    transform: skewX(-20deg);
+    transition: left 0.5s ease;
+    pointer-events: none;
+}
+
+.glass-button:hover::after {
+    left: 125%;
 }
 
 .heart-float {
@@ -126,7 +150,6 @@ p {
     50% { transform: translateY(-5px); }
 }
 
-/* General Fade Animations */
 @keyframes fadeOut {
     from { opacity: 1; transform: scale(1); }
     to { opacity: 0; transform: scale(0.95); }
@@ -137,14 +160,19 @@ p {
     to { opacity: 1; transform: scale(1); }
 }
 
+@keyframes fadeSlideIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
 /* Romantic Background Effects */
 .romantic-effect {
     position: absolute;
     font-size: 4em;
     opacity: 0.1;
     z-index: 1;
-    pointer-events: none; /* Make it non-interactive */
-    animation: floatAndFade 15s infinite ease-in-out;
+    pointer-events: none;
+    animation: floatAndFade 15s infinite ease-in-out, sparkle 4s infinite alternate;
 }
 
 .romantic-effect:nth-child(1) { top: 10%; left: 5%; animation-delay: 0s; }
@@ -158,17 +186,24 @@ p {
     100% { transform: translateY(0) rotate(0deg); opacity: 0.1; }
 }
 
+@keyframes sparkle {
+    0% { opacity: 0.1; filter: brightness(1); }
+    100% { opacity: 0.15; filter: brightness(1.2); }
+}
+
 .love-particle {
     position: absolute;
     width: 15px;
     height: 15px;
-    background-color: #ff6f61; /* Soft red/pink */
+    background-color: #ff6f61;
     border-radius: 50%;
     opacity: 0;
     pointer-events: none;
     animation: emitLove 5s infinite ease-out;
-    filter: blur(2px); /* Soft glow */
+    filter: blur(2px);
     z-index: 2;
+    --x: calc(var(--random-x) * 1px);
+    --y: calc(var(--random-y) * 1px);
 }
 
 .love-particle:nth-child(even) {
@@ -181,12 +216,6 @@ p {
     0% { transform: scale(0) translateX(0) translateY(0); opacity: 0; }
     20% { opacity: 0.6; }
     100% { transform: scale(1.2) translateX(var(--x)) translateY(var(--y)); opacity: 0; }
-}
-
-/* JavaScript controlled particle creation for dynamic positioning */
-.love-particle {
-    --x: calc(var(--random-x) * 1px);
-    --y: calc(var(--random-y) * 1px);
 }
 
 /* Music Control Buttons */
@@ -203,7 +232,7 @@ p {
     transition: all 0.3s ease;
     margin-top: 15px;
     position: relative;
-    z-index: 20; /* Above everything else */
+    z-index: 20;
     text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
 }
 
@@ -212,7 +241,7 @@ p {
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
 }
 
-/* Final Screen for Fireworks (if you plan to use it) */
+/* Final Screen for Fireworks */
 .final-screen {
     position: fixed;
     top: 0;
@@ -238,7 +267,7 @@ p {
     position: absolute;
     width: 10px;
     height: 10px;
-    background-color: var(--firework-color, #ff6f61); /* Default color, can be overridden by JS */
+    background-color: var(--firework-color, #ff6f61);
     border-radius: 50%;
     box-shadow: 0 0 5px var(--firework-color, #ff6f61), 0 0 10px var(--firework-color, #ff6f61);
     animation: explode 1s forwards;
@@ -252,73 +281,30 @@ p {
     100% { transform: scale(0); opacity: 0; }
 }
 
-
-/* --- Mobile Responsiveness (Mobile-first approach) --- */
-
-/* For screens smaller than 600px (most phones) - already handled by default */
+/* Responsive */
 @media (max-width: 600px) {
     .container {
         padding: 20px;
         margin: 10px;
-        width: 95%; /* Slightly wider for smaller screens */
+        width: 95%;
     }
 
-    h2 {
-        font-size: 1.8em;
-    }
-
-    p {
-        font-size: 1em;
-    }
-
-    .glass-button {
-        padding: 12px 20px;
-        font-size: 1em;
-    }
-
-    .romantic-effect {
-        font-size: 3em; /* Slightly smaller symbols */
-    }
+    h2 { font-size: 1.8em; }
+    p { font-size: 1em; }
+    .glass-button { padding: 12px 20px; font-size: 1em; }
+    .romantic-effect { font-size: 3em; }
 }
 
-/* For screens between 601px and 900px (tablets) */
 @media (min-width: 601px) and (max-width: 900px) {
-    .container {
-        padding: 40px;
-        width: 80%;
-    }
-
-    h2 {
-        font-size: 2.5em;
-    }
-
-    p {
-        font-size: 1.15em;
-    }
-
-    .glass-button {
-        padding: 18px 30px;
-        font-size: 1.2em;
-    }
+    .container { padding: 40px; width: 80%; }
+    h2 { font-size: 2.5em; }
+    p { font-size: 1.15em; }
+    .glass-button { padding: 18px 30px; font-size: 1.2em; }
 }
 
-/* For screens larger than 900px (desktops) */
 @media (min-width: 901px) {
-    .container {
-        padding: 50px;
-        max-width: 800px; /* Can be a bit wider on large screens */
-    }
-
-    h2 {
-        font-size: 3em;
-    }
-
-    p {
-        font-size: 1.2em;
-    }
-
-    .glass-button {
-        padding: 20px 35px;
-        font-size: 1.3em;
-    }
+    .container { padding: 50px; max-width: 800px; }
+    h2 { font-size: 3em; }
+    p { font-size: 1.2em; }
+    .glass-button { padding: 20px 35px; font-size: 1.3em; }
 }
