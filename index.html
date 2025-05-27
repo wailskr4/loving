@@ -35,14 +35,14 @@
   const gameDiv = document.getElementById('game');
   const heartsContainer = document.getElementById('hearts');
 
-  function fadeOutAndChange(content) {
-    gameDiv.style.animation = 'fadeOut 0.5s ease-out';
-    setTimeout(() => {
-      gameDiv.innerHTML = content;
-      gameDiv.style.animation = 'fadeIn 0.5s ease-out';
-      createFloatingHearts(20); // Ajoute des coeurs flottants
-    }, 700);
-  }
+function fadeOutAndChange(content) {
+  gameDiv.style.animation = 'fadeOut 0.5s ease-out';
+  setTimeout(() => {
+    gameDiv.innerHTML = content;
+    gameDiv.style.animation = 'fadeIn 0.5s ease-out';
+    window.scrollTo(0, 0); // Ajout du défilement vers le haut
+  }, 500); // Synchronisation avec la durée CSS
+}
 
 
 
@@ -89,12 +89,13 @@ function scene20() {
     <h2>🖼️ Nos œuvres préférées</h2>
     <p>Nous partageons nos impressions sur les œuvres d'art et les artefacts historiques. Ton regard émerveillé me fait fondre.</p>
     <div class="button-group">
-      <button onclick="scene21()">Continuer vers Sidi Mabrouk 🌳</button>
-      <button onclick="scene22()">Pause café dans le jardin du musée ☕</button>
+      <button onclick="scene22()">Continuer vers Sidi Mabrouk 🌳</button>
+      <button onclick="scene21()">Pause café dans le jardin du musée ☕</button>
     </div>
   `;
   fadeOutAndChange(content);
 }
+
 function scene21() {
   const content = `
     <h2>☕ Pause détente</h2>
@@ -106,6 +107,7 @@ function scene21() {
   `;
   fadeOutAndChange(content);
 }
+
 function scene22() {
   const content = `
     <h2>🌳 Balade à Sidi Mabrouk</h2>
@@ -145,7 +147,7 @@ function scene24() {
     <h2>🍵 Pause thé</h2>
     <p>Dans un café typique, nous dégustons un thé à la menthe, bercés par la musique locale et l'ambiance conviviale.</p>
     <div class="button-group">
-      <button onclick="scene31()">Direction le centre commercial Magic House 🛒</button>
+      <button onclick="scene30()">Direction le centre commercial Magic House 🛒</button>
       <button onclick="scene20()">Retour au musée pour une dernière visite 🖼️</button>
     </div>
   `;
@@ -180,8 +182,46 @@ function scene26() {
   `;
   fadeOutAndChange(content);
 }
+function scene29() {
+  const content = `
+    <h2>🍵 Pause gourmande au salon de thé El Khayem</h2>
+    <p>Nous nous installons confortablement au <strong>salon de thé El Khayem</strong>, situé dans l'hôtel du même nom à Constantine. L'ambiance chaleureuse et l'arôme du thé à la menthe nous enveloppent. Nous dégustons des pâtisseries locales comme le <em>chrik</em> et la <em>djouzia</em>, spécialités de la région.</p>
+    <div class="button-group">
+      <button onclick="scene26()">Continuer vers le centre commercial Magic House 🛍️</button>
+      <button onclick="scene20()">Retour au musée pour une dernière visite 🖼️</button>
+    </div>
+  `;
+  fadeOutAndChange(content);
+}
 
-  
+  function scene30() {
+  const content = `
+    <h2>🛍️ Exploration du centre commercial Magic House</h2>
+    <p>Nous arrivons au <strong>centre commercial Magic House</strong>, un lieu animé où se mêlent boutiques variées et animations festives. Nous flânons dans les allées, découvrant des produits locaux et des souvenirs uniques.</p>
+    <div class="button-group">
+      <button onclick="scene31()">Dîner dans un restaurant du centre 🍽️</button>
+      <button onclick="scene32()">Participer à une tombola 🎁</button>
+    </div>
+  `;
+  fadeOutAndChange(content);
+}
+function scene31() {
+  const content = `
+    <h2>🍽️ Dîner romantique au restaurant du centre</h2>
+    <p>Nous savourons un délicieux repas dans l'un des restaurants du <strong>centre commercial Magic House</strong>. Les saveurs locales et l'ambiance feutrée rendent ce moment inoubliable.</p>
+    <button onclick="endLove()">Clôturer cette journée magique ❤️</button>
+  `;
+  fadeOutAndChange(content);
+}
+function scene32() {
+  const content = `
+    <h2>🎁 Surprise gagnante à la tombola</h2>
+    <p>Nous participons à une tombola organisée au <strong>centre commercial Magic House</strong> et remportons un cadeau inattendu. Cette surprise ajoute une touche de magie à notre journée.</p>
+    <button onclick="endLove()">Finir la journée en beauté 💖</button>
+  `;
+  fadeOutAndChange(content);
+}
+
 
 
 
@@ -601,10 +641,9 @@ function endLove() {
       }, i * 300);
     }
   }
-      window.onload = function() {
-      setupButtonEvents();
-  
-    };
+window.onload = function() {
+  setupButtonEvents(); // Assurez-vous que cette fonction existe réellement
+};
 
 
 });
