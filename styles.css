@@ -83,7 +83,7 @@ flex-wrap:wrap;
 }
 
 h2 {
-      font-size: clamp(2.5rem, 8vw, 2.6rem);
+       font-size: clamp(1.8rem, 6vw, 2.4rem); /* plus fluide sur petits écrans */
       margin-bottom: 1rem;
   font-weight: 600;
   text-shadow: 
@@ -141,8 +141,8 @@ p {
 }
 
 button {
-  padding: 1rem 2rem;
-  font-size: 1.05rem;
+ font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+  padding: 0.8rem 1.5rem;
   border: none;
   border-radius: 50px;
   background: linear-gradient(45deg, #ff6f61, #ff8e7a);
@@ -299,7 +299,9 @@ button:focus:not(:active)::after {
   z-index: 1;
   pointer-events: none;
 }
-
+.passion-effect, .scene-effect {
+  font-size: clamp(1.5rem, 4vw, 3rem);
+}
 @keyframes explode {
   0% { transform: scale(1); opacity: 1; }
   100% { transform: scale(20); opacity: 0; }
@@ -307,7 +309,7 @@ button:focus:not(:active)::after {
 
 .signature {
   font-family: 'Brush Script MT', cursive;
-  font-size: 1.8rem;
+   font-size: clamp(1.2rem, 3.5vw, 1.8rem);
   margin: 1.5rem 0;
   color: #ffd3d3;
   text-shadow: 0 2px 4px rgba(0,0,0,0.3);
@@ -366,58 +368,61 @@ button.hot {
 @media (max-width: 600px) {
   body {
     padding: 1rem;
-    align-items: flex-start;
+    align-items: stretch;
   }
 
   .container {
-    padding: 1.2rem;
-    border-radius: 15px;
-    margin: 1.2rem auto;
-    width: 90%;
-    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.25);
+    padding: 1rem;
+    margin: 1rem auto;
+    width: 95%;
   }
 
   h2 {
-    font-size: 1.8rem;
-    text-align: center;
+    font-size: 1.6rem;
   }
 
   p {
-    font-size: 1.1rem;
+    font-size: 1rem;
     line-height: 1.5;
+  }
+
+  button {
+    font-size: 0.95rem;
+    padding: 0.7rem 1.2rem;
   }
 
   .button-group {
     flex-direction: column;
-    gap: 0.8rem;
-  }
-
-  button {
-    padding: 0.8rem 1rem;
-    font-size: 1rem;
-    width: 100%;
+    gap: 0.7rem;
   }
 
   .signature {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     text-align: center;
   }
 
-  .passion-effect {
-    font-size: 2rem;
-    right: 10px;
-    bottom: 10px;
-  }
-
-  .scene-effect {
-    font-size: 2rem;
+  .passion-effect, .scene-effect {
+    font-size: 1.5rem;
   }
 
   .replay-btn {
-    padding: 0.8rem 1.5rem;
+    padding: 0.7rem 1.5rem;
+    font-size: 0.9rem;
+  }
+
+  .glass-button {
     font-size: 1rem;
+    padding: 0.8rem 1.2rem;
+  }
+
+  .floating-music-btn {
+    font-size: 0.9rem;
+    padding: 10px 18px;
+    bottom: 10px;
+    right: 10px;
   }
 }
+
 
 
 
