@@ -44,24 +44,7 @@
     }, 700);
   }
 
-  function createFloatingHearts(count) {
-    for (let i = 0; i < count; i++) {
-      const heart = document.createElement('div');
-      heart.className = 'heart';
-      heart.innerHTML = '❤';
-      heart.style.left = Math.random() * 80 + 10 + '%';
-      heart.style.bottom = '-20px';
-      heart.style.color = ['#ff6f61', '#ffb8b8', '#ffd3d3', '#ffffff'][Math.floor(Math.random() * 4)];
-      heart.style.animationDelay = Math.random() * 2 + 's';
-      heart.style.fontSize = (Math.random() * 15 + 10) + 'px';
-      heartsContainer.appendChild(heart);
-      
-      // Supprime le coeur après l'animation
-      setTimeout(() => {
-        heart.remove();
-      }, 6000);
-    }
-  }
+
 
 function startStory() {
   const content = `
@@ -620,8 +603,24 @@ function endLove() {
   }
       window.onload = function() {
       setupButtonEvents();
-      createFloatingHearts(5);
+  
     };
+
+  function createHearts() {
+  const heartsContainer = document.getElementById('hearts');
+  for (let i = 0; i < 10; i++) {
+    const heart = document.createElement('div');
+    heart.className = 'heart';
+    heart.innerHTML = '💖';
+    heart.style.left = Math.random() * 100 + '%';
+    heart.style.animationDelay = Math.random() * 2 + 's';
+    heartsContainer.appendChild(heart);
+  }
+}
+  window.addEventListener('DOMContentLoaded', () => {
+  createHearts();
+  document.querySelector('.container').style.transform = 'perspective(1000px)';
+});
 </script>
 
 
