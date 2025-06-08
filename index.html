@@ -119,25 +119,234 @@ document.addEventListener('DOMContentLoaded', () => {
 OUT RIDE SECTION
 =====================*/
 
+function outride() {
+      const content = `
+        <h2>Wail et Nesrine décide ee faire une sortie </h2>
+        <p> Meteo agréable, nous nous préparons pour la sortie  </p>
+        <p><b>Ou es que tu veux commencer baby :</b></p>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        <div class="button-group">
+          <button onclick="Ritajmall()">Nro7o Ritaj bébé </button>
+          <button onclick="Carride()">? nbdaw b'une belle promenade</button>
     
+        </div>
+      `;
+      fadeOutAndChange(content);
+    }
+
+function Ritajmall() {
+      const content = `
+        <h2>Direction Ritaj Ensemble</h2>
+        <p>on prend la direction du mall </p>
+        <p><b>main dans la main on explore les magasin Essaye des magasin:</b></p>
+
+        <div class="button-group">
+          <button onclick="onprendsnack()">On fais une pause baby naklo gauffre crêpes etc.. 😋</button>
+          <button onclick="directionsquare()">Sortons baby direction square shop 🖼️</button>
+    
+        </div>
+      `;
+      fadeOutAndChange(content);
+    }
+
+function directionsquare() {
+      const content = `
+        <h2>On parc la voiture </h2>
+        <p>on prend la direction du Square shop </p>
+        <p><b>main dans la main on explore les magasin Et l'ambiance nocture :</b></p>
+
+        <div class="button-group">
+          <button onclick="Carride()"L'après avoir bien exploré les endroit en decide de revenir a la voiture 🚗 </button>
+         
+    <button onclick="baladeNocturne()">Je veux une longue baalade zajwi 💜</button>
+        </div>
+      `;
+      fadeOutAndChange(content);
+    }
+
+function onprendsnack() {
+      const content = `
+        <h2>on choisi un nouveau magasin au hazard</h2>
+        <p>pour prendre un bon dessert ☕ </p>
+        <p><b>On prend des crêpes salé puis :</b></p>
+
+        <div class="button-group">
+          <button onclick="directionsquare()">on y va pour le square shop zwji</button>
+          <button onclick="Carride()">On fais une belle balade nocturne </button>
+    
+        </div>
+      `;
+      fadeOutAndChange(content);
+    }
+
+
+
+
+function Carride() {
+  const content = `
+    <h2>Balade sur les ponts illuminés</h2>
+    <p>On part main dans la main admirer les ponts : Sidi M’Cid, Pont géant…Sidi mabrouk</p>
+    <p><b>Où poser notre sac, bébé ?</b></p>
+    <div class="button-group">
+      <button onclick="pauseCafe()">Pause thé ou Chocolat chaud </button>
+      
+    </div>`;
+  fadeOutAndChange(content);
+}
+
+function pauseCafe() {
+  const content = `
+    <h2>Pause douce au café</h2>
+    <p>Après une belle balade main dans la main, on se pose dans un café cosy pour savourer un thé à la menthe ou un café. Voici nos options : </p>
+    <ul>
+      <li><b>La Calèche Plus</b> – salon de thé-pâtisserie, parfait pour déguster crêpes, gaufres et douceurs.</li>
+      <li><b>Café Beyrouth</b> – petit cosy, ambiance chaleureuse et calme.</li>
+      <li><b>Amalfi Café</b> – moderne, spécial brunch, ambiance détente.</li>
+      <li><b>Cosy Coffice</b> – mix café & espace de travail, idéal si on veut prolonger la pause en prenant un goûter.</li>
+    </ul>
+    <p><b>Laquelle tu choisis, bébé ?</b></p>
+    <div class="button-group">
+      <button onclick="choisirCafe('La Calèche Plus')">La Calèche Plus</button>
+      <button onclick="choisirCafe('Café Beyrouth')">Café Beyrouth</button>
+      <button onclick="choisirCafe('Amalfi Café')">Amalfi Café</button>
+      <button onclick="choisirCafe('Cosy Coffice')">Cosy Coffice</button>
+    </div>
+  `;
+  fadeOutAndChange(content);
+}
+
+
+
+function choisirCafe(cafe) {
+  const content = `
+    <h2>Vous avez choisi : ${cafe}</h2>
+    <p>Après cette pause gourmande, où souhaitez-vous aller ?</p>
+    <div class="button-group">
+      <button onclick="visitMosquee()">Visiter la mosquée Émir Abdelkader</button>
+      <button onclick="goYesMall()">Aller faire du shopping au Yes Mall</button>
+      <button onclick="allerSidiMabrouk()">Découvrir Sidi Mabrouk</button>
+<button onclick="baladeNocturne()">Je veux une longue baalade zajwi 💜</button>
+    </div>
+  `;
+  fadeOutAndChange(content);
+}
+
+
+function visitMosquee() {
+  const content = `
+    <h2>Direction la mosquée Émir Abdelkader</h2>
+    <p>On admire ensemble les minarets de 107 m, le dôme et l’université islamique.</p>
+    <p><b>Après la visite :</b></p>
+    <div class="button-group">
+      <button onclick="baladePanorama()">On fait une balade panoramique</button>
+      <button onclick="renduCasa()">On rentre en ville et casse-croûte</button>
+    </div>
+  `;
+  fadeOutAndChange(content);
+}
+
+function allerSidiMabrouk() {
+  const content = `
+    <h2>On file à Sidi Mabrouk</h2>
+    <p>Quartier animé avec cafés/restaurants comme Aslan Lounge, Modena, ou Secret Coffee.</p>
+    <p><b>Choisis ton ambiance :</b></p>
+    <div class="button-group">
+      <button onclick="aslanPause()">Aslan Lounge pour dîner/cocktail</button>
+      <button onclick="secretCoffee()">Secret Coffee pour pâtisseries</button>
+    </div>
+  `;
+  fadeOutAndChange(content);
+}
+
+function baladePanorama() {
+  const content = `
+    <h2>Balade au panorama</h2>
+    <p>On se promène autour de l’esplanade, vue magnifique sur la ville et le canyon.</p>
+    <p><b>Envie de :</b></p>
+    <div class="button-group">
+      <button onclick="renduCasa()">Retour tranquille en ville</button>
+      <button onclick="goYesMall()">Direction Le yes mall baby</button>
+<button onclick="baladeNocturne()">Je veux une longue baalade zajwi 💜</button>
+    </div>`;
+  fadeOutAndChange(content);
+}
+
+function renduCasa() {
+  const content = `
+    <h2>Retour en ville</h2>
+    <p>On rentre tranquillement vers le centre, prêt pour un snack ou un dîner léger.</p>
+    <p><i>Fin du scénario, amusez-vous bien !</i></p>`;
+  fadeOutAndChange(content);
+}
+
+function goYesMall() {
+  const content = `
+    <h2>Cap vers le Yes Mall</h2>
+    <p>On découvre les boutiques, on fait du lèche‑vitrine.</p>
+    <p><b>Ensuite :</b></p>
+    <div class="button-group">
+      <button onclick="pauseResto()">Pause resto/café au Mega Food City</button>
+      <button onclick="retourVille()">Revenir en centre-ville</button>
+    </div>`;
+  fadeOutAndChange(content);
+}
+
+function pauseResto() {
+  const content = `
+    <h2>Pause gourmande au Mega Food City</h2>
+    <p>On se régale de plats variés et boissons, ouvert 7j/7 au 5ᵉ étage.</p>
+    <p><b>Après :</b></p>
+    <div class="button-group">
+      <button onclick="retourVille()">Retour en centre-ville</button>
+      <button onclick="plusShopping()">On continue le shopping</button>
+    </div>`;
+  fadeOutAndChange(content);
+}
+
+function plusShopping() {
+  const content = `
+    <h2>Encore un peu de shopping 💃</h2>
+    <p>On retourne dans les boutiques pour un dernier tour, puis retour.</p>
+    <p><i>Fin du scénario, belle soirée !</i></p>`;
+  fadeOutAndChange(content);
+}
+function aslanPause() {
+  const content = `
+    <h2>Aslan Lounge 🌟</h2>
+    <p>On profite d’un dîner ou d’un cocktail dans une ambiance conviviale.</p>
+    <p><i>Fin du scénario, soirée réussie !</i></p>`;
+  fadeOutAndChange(content);
+}
+
+function secretCoffee() {
+  const content = `
+    <h2>Secret Coffee ☕</h2>
+    <p>On déguste des pâtisseries américaines dans un coin cosy de Sidi Mabrouk.</p>
+    <p><i>Fin du scénario, douce fin de soirée !</i></p>`;
+  fadeOutAndChange(content);
+}
+
+
+function baladeNocturne() {
+  const content = `
+    <h2>Balade nocturne romantique 🌙</h2>
+    <p>On part pour une douce promenade nocturne, main dans la main, en explorant les ruelles illuminées de la vieille ville.</p>
+    <p>Option conseillée : itinéraire Didouche Mourad → Djebel El Ouahche (environ 7,7 km, dénivelé 516 m), pour des points de vue incroyables sur la ville la nuit.</p>
+    <div class="button-group">
+      <button onclick="Carride()">On reviens. ers les alentour pour decidé pour la prochaine aventure </button>
+      <button onclick="finBalade()">Rester un moment ici, admirer la vue</button>
+    </div>`;
+  fadeOutAndChange(content);
+}
+    
+function finBalade() {
+  const content = `
+    <h2>Moment suspendu 🌌</h2>
+    <p>On profite du silence et des lumières de Constantine, ensemble au sommet.</p>
+    <p><i>Fin de la balade nocturne — soirée romantique authentique.</i></p>`
+<button onclick="lit()">Un enorme câlin 🫂 puis direction chez nous au lit</button>;
+  fadeOutAndChange(content);
+}
     /*============================================================
     end of outide
     ============================================================*/
