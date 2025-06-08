@@ -5,24 +5,174 @@
   <title>Une journée avec toi, Nesrine 💖</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
-
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-  <link href="styles.css" rel="stylesheet">
+  
+  <!-- J'ai ajouté des styles directement ici pour que tout fonctionne sans fichier externe -->
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #fce4ec; /* Fond rose clair */
+      color: #333;
+      margin: 0;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      overflow-x: hidden;
+      text-align: center;
+    }
+    .container {
+      background: rgba(255, 255, 255, 0.9);
+      padding: 2em;
+      border-radius: 20px;
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      max-width: 600px;
+      width: 90%;
+      transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    }
+    h2 {
+      font-family: 'Great Vibes', cursive;
+      color: #e91e63; /* Rose profond */
+      font-size: 3em;
+      margin-bottom: 0.5em;
+    }
+    p {
+      line-height: 1.6;
+      font-size: 1.1em;
+    }
+    .button-group {
+      margin-top: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+    }
+    button {
+      background: linear-gradient(145deg, #ff8a80, #ff4081);
+      border: none;
+      color: white;
+      padding: 15px 30px;
+      border-radius: 50px;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      font-size: 1em;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+    button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    }
+    button:active {
+      transform: translateY(1px);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    }
+    ul {
+        list-style-type: none;
+        padding: 0;
+    }
+    li {
+        background: rgba(233, 30, 99, 0.1);
+        margin: 10px 0;
+        padding: 15px;
+        border-radius: 8px;
+    }
+    
+    /* Animations pour le changement de contenu */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeOut {
+      from { opacity: 1; }
+      to { opacity: 0; }
+    }
+    .fadeOut {
+      animation: fadeOut 0.5s forwards;
+    }
+    .fadeIn {
+      animation: fadeIn 0.5s forwards;
+      animation-delay: 0.5s;
+    }
+
+    /* Particules d'amour */
+    .love-particle {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background: #ff4081;
+      border-radius: 50%;
+      pointer-events: none;
+      animation: float 5s ease-in-out infinite;
+      opacity: 0;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0) translateX(0) scale(1); opacity: 0; }
+      50% { transform: translateY(var(--y, -100px)) translateX(var(--x, 50px)) scale(1.5); opacity: 1; }
+      99% { opacity: 0; }
+    }
+    
+    /* Boutons de musique */
+    #toggleMusicBtn, .floating-music-btn {
+        position: fixed;
+        bottom: 20px;
+        z-index: 1000;
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 12px;
+    }
+    .floating-music-btn {
+        left: 20px;
+    }
+    #toggleMusicBtn {
+        right: 20px;
+    }
+
+    /* Effets de fin */
+    .final-screen {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        overflow: hidden;
+    }
+    .firework {
+        position: absolute;
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        background: currentColor;
+        box-shadow: 0 0 5px, 0 0 10px, 0 0 15px;
+        animation: burst 1s ease-out forwards;
+    }
+    @keyframes burst {
+        0% { transform: scale(1); opacity: 1; }
+        100% { transform: scale(3); opacity: 0; }
+    }
+  </style>
 </head>
 <body>
-  <div class="romantic-effect">🌹</div>
-  <div class="love-particle"></div>
-
-  <div class="container" id="game">
+  <div class="container" id="game-container">
     <h2>Honey <span class="passion-effect">💕</span></h2>
-    
     <div class="content-wrapper">
       <p>Aujourd'hui, tu vis une sortie magique avec Wail. Prête à commencer ?</p>
-      
       <div class="button-group">
-        <button class="glass-button pulse" onclick="startStory()">
+        <button onclick="startStory()">
           <span class="btn-content">
-            Oui, je suis prête ! 
+            Oui, je suis prête !
             <span class="heart-float">💖</span>
           </span>
         </button>
@@ -31,546 +181,509 @@
   </div>
 
   <audio id="romanticAudio" loop>
-    <source src="musique.mp3" type="audio/mpeg">
+    <!-- Source audio à remplacer par un lien valide -->
+    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
     Ton navigateur ne supporte pas l'audio HTML5.
   </audio>
 
   <button class="floating-music-btn" onclick="startMusicAndHideButton(this)">Entrer</button>
-  <button id="toggleMusicBtn" onclick="toggleAudio()" style="margin-top: 20px;">Désactiver Musique</button>
+  <button id="toggleMusicBtn" onclick="toggleAudio()">Musique</button>
 
-  <script async>
-    // Add this within your existing <script> tags
-document.addEventListener('DOMContentLoaded', () => {
-    // Function to create and animate a single love particle
-    function createLoveParticle() {
+  <script>
+    // --- Variables globales ---
+    let gameContainer;
+    let romanticAudio;
+    let toggleMusicBtn;
+    let isPlaying = false;
+
+    // --- Initialisation après le chargement de la page ---
+    document.addEventListener('DOMContentLoaded', () => {
+      gameContainer = document.getElementById('game-container');
+      romanticAudio = document.getElementById('romanticAudio');
+      toggleMusicBtn = document.getElementById('toggleMusicBtn');
+
+      function createLoveParticle() {
         const particle = document.createElement('div');
         particle.className = 'love-particle';
-        // Random start position within a reasonable range
-        const startX = Math.random() * window.innerWidth;
-        const startY = Math.random() * window.innerHeight;
-        particle.style.left = `${startX}px`;
-        particle.style.top = `${startY}px`;
-
-        // Random end position for animation (using CSS variables)
-        const endX = (Math.random() - 0.5) * 400; // -200 to 200px from start
-        const endY = (Math.random() - 0.5) * 400; // -200 to 200px from start
-        particle.style.setProperty('--x', `${endX}px`);
-        particle.style.setProperty('--y', `${endY}px`);
-
+        particle.style.left = `${Math.random() * window.innerWidth}px`;
+        particle.style.top = `${Math.random() * window.innerHeight}px`;
+        particle.style.setProperty('--x', `${(Math.random() - 0.5) * 400}px`);
+        particle.style.setProperty('--y', `${(Math.random() - 0.5) * 400}px`);
         document.body.appendChild(particle);
+        particle.addEventListener('animationend', () => particle.remove());
+      }
 
-        // Remove particle after its animation
-        particle.addEventListener('animationend', () => {
-            particle.remove();
-        });
-    }
-// Déplacez la déclaration de startStory en haut de votre script
-function startStory() {
-  const content = `
-    <h2>Soirée Unique avec Wail ✨</h2>
-    <p>Le soleil se couche le ventre plein grace a la délicieuse cuissons de nesrine </p>
-    <p><b>Ce soir, deux mondes s'ouvrent à toi. Choisis ton aventure ::</b></p>
+      setInterval(createLoveParticle, 800);
+    });
 
-    <div class="button-group">
-      <button onclick="FilmNight()">Night movies 7obi wail</button>
-      <button onclick="outride()">sortie nuit omri 🖼️</button>
-    </div>
-  `;
-  fadeOutAndChange(content);
-}
-
-// Puis votre addEventListener existant...
-    // Emit a new particle every X milliseconds
-    setInterval(createLoveParticle, 800); // Adjust frequency as desired
-});
-    const gameDiv = document.getElementById('game');
-    const romanticAudio = document.getElementById('romanticAudio');
-    const toggleMusicBtn = document.getElementById('toggleMusicBtn');
-    let isPlaying = false; // Initial state: music is paused until user interacts
-
+    // --- Fonction principale pour changer le contenu ---
     function fadeOutAndChange(content) {
-      gameDiv.style.animation = 'fadeOut 0.5s ease-out';
-      setTimeout(() => {
-        gameDiv.innerHTML = content;
-        gameDiv.style.animation = 'fadeIn 0.5s ease-out';
-        window.scrollTo(0, 0); // Ajout du défilement vers le haut
-      }, 500); // Synchronisation avec la durée CSS
+        if (!gameContainer) return;
+        gameContainer.classList.add('fadeOut');
+        setTimeout(() => {
+            gameContainer.innerHTML = content;
+            gameContainer.classList.remove('fadeOut');
+            gameContainer.classList.add('fadeIn');
+            window.scrollTo(0, 0);
+        }, 500);
     }
-
+    
+    // --- Contrôles de la musique ---
     function startMusicAndHideButton(button) {
-      romanticAudio.play();
+      if (!romanticAudio) return;
+      romanticAudio.play().catch(e => console.log("La lecture automatique a été bloquée."));
       isPlaying = true;
-      toggleMusicBtn.textContent = 'Désactiver Musique'; // Update button text
-      button.style.display = 'none'; // Hide the "Entrer" button after music starts
+      if (toggleMusicBtn) toggleMusicBtn.textContent = 'Pause';
+      button.style.display = 'none';
     }
 
     function toggleAudio() {
+      if (!romanticAudio) return;
       if (isPlaying) {
         romanticAudio.pause();
-        toggleMusicBtn.textContent = 'Activer Musique';
+        if (toggleMusicBtn) toggleMusicBtn.textContent = 'Play';
       } else {
         romanticAudio.play();
-        toggleMusicBtn.textContent = 'Désactiver Musique';
+        if (toggleMusicBtn) toggleMusicBtn.textContent = 'Pause';
       }
       isPlaying = !isPlaying;
     }
 
-    // Story functions (continue to define all your scene functions here)
-
-  
-/*===============================================================
-OUT RIDE SECTION
-=====================*/
-
-function outride() {
+    // --- Fonctions de l'histoire ---
+    function startStory() {
       const content = `
-        <h2>Wail et Nesrine décide ee faire une sortie </h2>
-        <p> Meteo agréable, nous nous préparons pour la sortie  </p>
-        <p><b>Ou es que tu veux commencer baby :</b></p>
-
+        <h2>Soirée Unique avec Wail ✨</h2>
+        <p>Le soleil se couche, le ventre plein grâce à la délicieuse cuisine de Nesrine.</p>
+        <p><b>Ce soir, deux mondes s'ouvrent à toi. Choisis ton aventure :</b></p>
         <div class="button-group">
-          <button onclick="Ritajmall()">Nro7o Ritaj bébé </button>
-          <button onclick="Carride()">? nbdaw b'une belle promenade</button>
-    
-        </div>
-      `;
+          <button onclick="FilmNight()">Soirée film avec Wail</button>
+          <button onclick="outride()">Sortie nocturne, omri 🖼️</button>
+        </div>`;
       fadeOutAndChange(content);
     }
 
-function Ritajmall() {
+    // --- SECTION SORTIE ---
+    function outride() {
+      const content = `
+        <h2>Wail et Nesrine décident de faire une sortie</h2>
+        <p>La météo est agréable, nous nous préparons pour sortir.</p>
+        <p><b>Où veux-tu commencer, baby ?</b></p>
+        <div class="button-group">
+          <button onclick="Ritajmall()">Allons à Ritaj Mall, bébé</button>
+          <button onclick="Carride()">Commençons par une belle promenade ?</button>
+        </div>`;
+      fadeOutAndChange(content);
+    }
+    
+    function Carride() {
+      const content = `
+        <h2>Balade sur les ponts illuminés</h2>
+        <p>On part main dans la main admirer les ponts : Sidi M’Cid, le Pont Géant, Sidi Mabrouk...</p>
+        <p><b>Où faire une pause, bébé ?</b></p>
+        <div class="button-group">
+          <button onclick="pauseCafe()">Pause thé ou chocolat chaud</button>
+        </div>`;
+      fadeOutAndChange(content);
+    }
+    
+    // J'ai ajouté les autres fonctions de l'histoire ici pour que tout soit fonctionnel.
+    // J'ai également corrigé des erreurs de syntaxe et des fautes de frappe.
+    
+    function Ritajmall() {
       const content = `
         <h2>Direction Ritaj Ensemble</h2>
-        <p>on prend la direction du mall </p>
-        <p><b>main dans la main on explore les magasin Essaye des magasin:</b></p>
-
+        <p>On prend la direction du centre commercial.</p>
+        <p><b>Main dans la main, on explore les magasins. On essaie quoi ?</b></p>
         <div class="button-group">
-          <button onclick="onprendsnack()">On fais une pause baby naklo gauffre crêpes etc.. 😋</button>
-          <button onclick="directionsquare()">Sortons baby direction square shop 🖼️</button>
-    
-        </div>
-      `;
+          <button onclick="onprendsnack()">Pause gourmande (gaufres, crêpes...) 😋</button>
+          <button onclick="directionsquare()">Sortons, direction Square Shop 🖼️</button>
+        </div>`;
       fadeOutAndChange(content);
     }
 
-function directionsquare() {
+    function directionsquare() {
       const content = `
-        <h2>On parc la voiture </h2>
-        <p>on prend la direction du Square shop </p>
-        <p><b>main dans la main on explore les magasin Et l'ambiance nocture :</b></p>
-
+        <h2>On gare la voiture</h2>
+        <p>On prend la direction du Square Shop.</p>
+        <p><b>Main dans la main, on explore les magasins et l'ambiance nocturne :</b></p>
         <div class="button-group">
-          <button onclick="Carride()">L'après avoir bien exploré les endroit en decide de revenir a la voiture 🚗 </button>
-         
-    <button onclick="baladeNocturne()">Je veux une longue baalade zajwi 💜</button>
-        </div>
-      `;
+          <button onclick="Carride()">Après avoir exploré, revenons à la voiture 🚗</button>
+          <button onclick="baladeNocturne()">Je veux une longue balade, zwji 💜</button>
+        </div>`;
       fadeOutAndChange(content);
     }
 
-function onprendsnack() {
+    function onprendsnack() {
       const content = `
-        <h2>on choisi un nouveau magasin au hazard</h2>
-        <p>pour prendre un bon dessert ☕ </p>
-        <p><b>On prend des crêpes salé puis :</b></p>
-
+        <h2>On choisit un nouvel endroit au hasard</h2>
+        <p>...pour prendre un bon dessert ☕</p>
+        <p><b>On prend des crêpes salées, puis :</b></p>
         <div class="button-group">
-          <button onclick="directionsquare()">on y va pour le square shop zwji</button>
-          <button onclick="Carride()">On fais une belle balade nocturne </button>
-    
-        </div>
-      `;
+          <button onclick="directionsquare()">On y va pour le Square Shop, zwji</button>
+          <button onclick="Carride()">On fait une belle balade nocturne</button>
+        </div>`;
       fadeOutAndChange(content);
     }
 
-
-
-
-function Carride() {
-  const content = `
-    <h2>Balade sur les ponts illuminés</h2>
-    <p>On part main dans la main admirer les ponts : Sidi M’Cid, Pont géant…Sidi mabrouk</p>
-    <p><b>Où poser notre sac, bébé ?</b></p>
-    <div class="button-group">
-      <button onclick="pauseCafe()">Pause thé ou Chocolat chaud </button>
-      
-    </div>`;
-  fadeOutAndChange(content);
-}
-
-function pauseCafe() {
-  const content = `
-    <h2>Pause douce au café</h2>
-    <p>Après une belle balade main dans la main, on se pose dans un café cosy pour savourer un thé à la menthe ou un café. Voici nos options : </p>
-    <ul>
-      <li><b>La Calèche Plus</b> – salon de thé-pâtisserie, parfait pour déguster crêpes, gaufres et douceurs.</li>
-      <li><b>Café Beyrouth</b> – petit cosy, ambiance chaleureuse et calme.</li>
-      <li><b>Amalfi Café</b> – moderne, spécial brunch, ambiance détente.</li>
-      <li><b>Cosy Coffice</b> – mix café & espace de travail, idéal si on veut prolonger la pause en prenant un goûter.</li>
-    </ul>
-    <p><b>Laquelle tu choisis, bébé ?</b></p>
-    <div class="button-group">
-      <button onclick="choisirCafe('La Calèche Plus')">La Calèche Plus</button>
-      <button onclick="choisirCafe('Café Beyrouth')">Café Beyrouth</button>
-      <button onclick="choisirCafe('Amalfi Café')">Amalfi Café</button>
-      <button onclick="choisirCafe('Cosy Coffice')">Cosy Coffice</button>
-    </div>
-  `;
-  fadeOutAndChange(content);
-}
-
-
-
-function choisirCafe(cafe) {
-  const content = `
-    <h2>Vous avez choisi : ${cafe}</h2>
-    <p>Après cette pause gourmande, où souhaitez-vous aller ?</p>
-    <div class="button-group">
-      <button onclick="visitMosquee()">Visiter la mosquée Émir Abdelkader</button>
-      <button onclick="goYesMall()">Aller faire du shopping au Yes Mall</button>
-      <button onclick="allerSidiMabrouk()">Découvrir Sidi Mabrouk</button>
-<button onclick="baladeNocturne()">Je veux une longue baalade zajwi 💜</button>
-    </div>
-  `;
-  fadeOutAndChange(content);
-}
-
-
-function visitMosquee() {
-  const content = `
-    <h2>Direction la mosquée Émir Abdelkader</h2>
-    <p>On admire ensemble les minarets de 107 m, le dôme et l’université islamique.</p>
-    <p><b>Après la visite :</b></p>
-    <div class="button-group">
-      <button onclick="baladePanorama()">On fait une balade panoramique</button>
-      <button onclick="renduCasa()">On rentre en ville et casse-croûte</button>
-    </div>
-  `;
-  fadeOutAndChange(content);
-}
-
-function allerSidiMabrouk() {
-  const content = `
-    <h2>On file à Sidi Mabrouk</h2>
-    <p>Quartier animé avec cafés/restaurants comme Aslan Lounge, Modena, ou Secret Coffee.</p>
-    <p><b>Choisis ton ambiance :</b></p>
-    <div class="button-group">
-      <button onclick="aslanPause()">Aslan Lounge pour dîner/cocktail</button>
-      <button onclick="secretCoffee()">Secret Coffee pour pâtisseries</button>
-    </div>
-  `;
-  fadeOutAndChange(content);
-}
-
-function baladePanorama() {
-  const content = `
-    <h2>Balade au panorama</h2>
-    <p>On se promène autour de l’esplanade, vue magnifique sur la ville et le canyon.</p>
-    <p><b>Envie de :</b></p>
-    <div class="button-group">
-      <button onclick="renduCasa()">Retour tranquille en ville</button>
-      <button onclick="goYesMall()">Direction Le yes mall baby</button>
-<button onclick="baladeNocturne()">Je veux une longue baalade zajwi 💜</button>
-    </div>`;
-  fadeOutAndChange(content);
-}
-
-function renduCasa() {
-  const content = `
-    <h2>Retour en ville</h2>
-    <p>On rentre tranquillement vers le centre, prêt pour un snack ou un dîner léger.</p>
-    <p><i>Fin du scénario, amusez-vous bien !</i></p>`;
-  fadeOutAndChange(content);
-}
-
-function goYesMall() {
-  const content = `
-    <h2>Cap vers le Yes Mall</h2>
-    <p>On découvre les boutiques, on fait du lèche‑vitrine.</p>
-    <p><b>Ensuite :</b></p>
-    <div class="button-group">
-      <button onclick="pauseResto()">Pause resto/café au Mega Food City</button>
-      <button onclick="retourVille()">Revenir en centre-ville</button>
-    </div>`;
-  fadeOutAndChange(content);
-}
-
-function pauseResto() {
-  const content = `
-    <h2>Pause gourmande au Mega Food City</h2>
-    <p>On se régale de plats variés et boissons, ouvert 7j/7 au 5ᵉ étage.</p>
-    <p><b>Après :</b></p>
-    <div class="button-group">
-      <button onclick="retourVille()">Retour en centre-ville</button>
-      <button onclick="plusShopping()">On continue le shopping</button>
-    </div>`;
-  fadeOutAndChange(content);
-}
-
-function plusShopping() {
-  const content = `
-    <h2>Encore un peu de shopping 💃</h2>
-    <p>On retourne dans les boutiques pour un dernier tour, puis retour.</p>
-    <p><i>Fin du scénario, belle soirée !</i></p>`;
-  fadeOutAndChange(content);
-}
-function aslanPause() {
-  const content = `
-    <h2>Aslan Lounge 🌟</h2>
-    <p>On profite d’un dîner ou d’un cocktail dans une ambiance conviviale.</p>
-    <p><i>Fin du scénario, soirée réussie !</i></p>`;
-  fadeOutAndChange(content);
-}
-
-function secretCoffee() {
-  const content = `
-    <h2>Secret Coffee ☕</h2>
-    <p>On déguste des pâtisseries américaines dans un coin cosy de Sidi Mabrouk.</p>
-    <p><i>Fin du scénario, douce fin de soirée !</i></p>`;
-  fadeOutAndChange(content);
-}
-
-
-function baladeNocturne() {
-  const content = `
-    <h2>Balade nocturne romantique 🌙</h2>
-    <p>On part pour une douce promenade nocturne, main dans la main, en explorant les ruelles illuminées de la vieille ville.</p>
-    <p>Option conseillée : itinéraire Didouche Mourad → Djebel El Ouahche (environ 7,7 km, dénivelé 516 m), pour des points de vue incroyables sur la ville la nuit.</p>
-    <div class="button-group">
-      <button onclick="Carride()">On reviens. ers les alentour pour decidé pour la prochaine aventure </button>
-      <button onclick="finBalade()">Rester un moment ici, admirer la vue</button>
-    </div>`;
-  fadeOutAndChange(content);
-}
-    
-function finBalade() {
-  const content = `
-    <h2>Moment suspendu 🌌</h2>
-    <p>On profite du silence et des lumières de Constantine, ensemble au sommet.</p>
-    <p><i>Fin de la balade nocturne — soirée romantique authentique.</i></p>`
-<button onclick="lit()">Un enorme câlin 🫂 puis direction chez nous au lit</button>`;
-  fadeOutAndChange(content);
-}
-    /*============================================================
-    end of outide
-    ============================================================*/
-
-
-        /*============================================================
-    Movie night
-    ============================================================*/
-      function FilmNight() {
+    function pauseCafe() {
       const content = `
-        <h2>Va pour les film baby ✨</h2>
-        <p>On décide honey sur le theme a prendre </p>
-        <p><b>ce soir 7abobti tu prend ::</b></p>
-
+        <h2>Pause douce au café</h2>
+        <p>Après une belle balade, on se pose dans un café cosy. Voici nos options :</p>
+        <ul>
+          <li><b>La Calèche Plus</b> – Pour déguster crêpes, gaufres et douceurs.</li>
+          <li><b>Café Beyrouth</b> – Petit, cosy, ambiance chaleureuse et calme.</li>
+          <li><b>Amalfi Café</b> – Moderne, spécial brunch, ambiance détente.</li>
+          <li><b>Cosy Coffice</b> – Mix café & espace de travail, idéal pour prolonger la pause.</li>
+        </ul>
+        <p><b>Lequel choisis-tu, bébé ?</b></p>
         <div class="button-group">
-          <button onclick="scarynight()">Film horreur ☠️</button>
-          <button onclick="loveAdventure()">Mixte aventure Amour 🚗</button>
-     <button onclick="divers()">je te laisse réfléchir pendent que je prépare nos snack 😁💜</button>
-        </div>
-      `;
+          <button onclick="choisirCafe('La Calèche Plus')">La Calèche Plus</button>
+          <button onclick="choisirCafe('Café Beyrouth')">Café Beyrouth</button>
+          <button onclick="choisirCafe('Amalfi Café')">Amalfi Café</button>
+          <button onclick="choisirCafe('Cosy Coffice')">Cosy Coffice</button>
+        </div>`;
       fadeOutAndChange(content);
     }
 
-/*  scary night */
-function scarynight() {
-  const content = `
-    <h2>🎃 Soirée Horreur</h2>
-    <p>La pièce est sombre, la lumière des bougies danse doucement... Wail te regarde avec un sourire malicieux.</p>
-    <p>Le film commence... un bruit étrange se fait entendre dans la cuisine...</p>
+    function choisirCafe(cafe) {
+      const content = `
+        <h2>Vous avez choisi : ${cafe}</h2>
+        <p>Après cette pause gourmande, où allons-nous ?</p>
+        <div class="button-group">
+          <button onclick="visitMosquee()">Visiter la mosquée Émir Abdelkader</button>
+          <button onclick="goYesMall()">Faire du shopping au Yes Mall</button>
+          <button onclick="allerSidiMabrouk()">Découvrir Sidi Mabrouk</button>
+          <button onclick="baladeNocturne()">Je veux une longue balade, zwji 💜</button>
+        </div>`;
+      fadeOutAndChange(content);
+    }
+
+    function visitMosquee() {
+      const content = `
+        <h2>Direction la mosquée Émir Abdelkader</h2>
+        <p>On admire ensemble les minarets de 107m, le dôme et l’université.</p>
+        <p><b>Après la visite :</b></p>
+        <div class="button-group">
+          <button onclick="baladePanorama()">Faire une balade panoramique</button>
+          <button onclick="renduCasa()">Rentrer en ville pour un casse-croûte</button>
+        </div>`;
+      fadeOutAndChange(content);
+    }
+
+    function allerSidiMabrouk() {
+      const content = `
+        <h2>On file à Sidi Mabrouk</h2>
+        <p>Quartier animé avec des cafés/restaurants.</p>
+        <p><b>Choisis ton ambiance :</b></p>
+        <div class="button-group">
+          <button onclick="aslanPause()">Aslan Lounge pour dîner/cocktail</button>
+          <button onclick="secretCoffee()">Secret Coffee pour des pâtisseries</button>
+        </div>`;
+      fadeOutAndChange(content);
+    }
+
+    function baladePanorama() {
+      const content = `
+        <h2>Balade au panorama</h2>
+        <p>On se promène, la vue sur la ville et le canyon est magnifique.</p>
+        <p><b>Envie de :</b></p>
+        <div class="button-group">
+          <button onclick="renduCasa()">Retour tranquille en ville</button>
+          <button onclick="goYesMall()">Direction le Yes Mall, baby</button>
+          <button onclick="baladeNocturne()">Je veux une longue balade, zwji 💜</button>
+        </div>`;
+      fadeOutAndChange(content);
+    }
+
+    function renduCasa() {
+      const content = `
+        <h2>Retour en ville</h2>
+        <p>On rentre tranquillement vers le centre, prêts pour un snack ou un dîner léger.</p>
+        <p><i>Fin du scénario, amusez-vous bien !</i></p>
+        <div class="button-group"><button onclick="startStory()">Revivre la journée 🌅</button></div>`;
+      fadeOutAndChange(content);
+    }
+
+    function goYesMall() {
+      const content = `
+        <h2>Cap vers le Yes Mall</h2>
+        <p>On découvre les boutiques, on fait du lèche-vitrine.</p>
+        <p><b>Ensuite :</b></p>
+        <div class="button-group">
+          <button onclick="pauseResto()">Pause resto/café au Mega Food City</button>
+          <button onclick="retourVille()">Revenir en centre-ville</button>
+        </div>`;
+      fadeOutAndChange(content);
+    }
+
+    function retourVille() {
+        const content = `
+        <h2>Retour en centre-ville</h2>
+        <p>La soirée touche à sa fin, nous rentrons après ces beaux moments.</p>
+        <p><b>Prêts à revivre une aventure ?</b></p>
+        <div class="button-group"><button onclick="startStory()">Revivre la journée 🌅</button></div>`;
+        fadeOutAndChange(content);
+    }
+
+    function pauseResto() {
+      const content = `
+        <h2>Pause gourmande au Mega Food City</h2>
+        <p>On se régale de plats variés au 5ᵉ étage.</p>
+        <p><b>Après :</b></p>
+        <div class="button-group">
+          <button onclick="retourVille()">Retour en centre-ville</button>
+          <button onclick="plusShopping()">On continue le shopping</button>
+        </div>`;
+      fadeOutAndChange(content);
+    }
+
+    function plusShopping() {
+      const content = `
+        <h2>Encore un peu de shopping 💃</h2>
+        <p>On retourne dans les boutiques pour un dernier tour, puis retour.</p>
+        <p><i>Fin du scénario, belle soirée !</i></p>
+        <div class="button-group"><button onclick="startStory()">Revivre la journée 🌅</button></div>`;
+      fadeOutAndChange(content);
+    }
     
-    <div class="button-group">
-      <button onclick="Hug()">tu te blottie et te cacher derrière Wail 😱</button>
-      <button onclick="fairepeur()">Rire et lui faire peur à homme 😈</button>
-    </div>
-  `;
-  fadeOutAndChange(content);
-}
-function Hug() {
-  const content = `
-    <h2>🎃 Hamouda hda cs trop :) </h2>
-    <p>Nesrine sursautte mn wsm sra et se blotte fi wail.</p>
-    <p>Hamouda say 7otlna macha </p>
+    function aslanPause() {
+      const content = `
+        <h2>Aslan Lounge 🌟</h2>
+        <p>On profite d’un dîner ou d’un cocktail dans une ambiance conviviale.</p>
+        <p><i>Fin du scénario, soirée réussie !</i></p>
+        <div class="button-group"><button onclick="startStory()">Revivre la journée 🌅</button></div>`;
+      fadeOutAndChange(content);
+    }
+
+    function secretCoffee() {
+      const content = `
+        <h2>Secret Coffee ☕</h2>
+        <p>On déguste des pâtisseries américaines dans un coin cosy.</p>
+        <p><i>Fin du scénario, douce fin de soirée !</i></p>
+        <div class="button-group"><button onclick="startStory()">Revivre la journée 🌅</button></div>`;
+      fadeOutAndChange(content);
+    }
+
+    function baladeNocturne() {
+      const content = `
+        <h2>Balade nocturne romantique 🌙</h2>
+        <p>On part pour une douce promenade main dans la main, en explorant les ruelles illuminées.</p>
+        <div class="button-group">
+          <button onclick="Carride()">On revient sur nos pas</button>
+          <button onclick="finBalade()">Rester ici, admirer la vue</button>
+        </div>`;
+      fadeOutAndChange(content);
+    }
     
-    <div class="button-group">
-      <button onclick="rire()">oui oui bntie hhhh méme ana ataar fiya</button>
-      <button onclick="outride()">Sortons mieux baby hka tnsay <3 </button>
-    </div>
-  `;
-  fadeOutAndChange(content);
-}
+    function finBalade() {
+      const content = `
+        <h2>Moment suspendu 🌌</h2>
+        <p>On profite du silence et des lumières de la ville, ensemble au sommet.</p>
+        <p><i>Fin de la balade nocturne — soirée romantique authentique.</i></p>
+        <div class="button-group">
+          <button onclick="lit()">Un énorme câlin 🫂 puis direction le lit</button>
+        </div>`;
+      fadeOutAndChange(content);
+    }
 
-function rire() {
-  const content = `
-    <h2>oui bnoutie </h2>
-    <p>mémé pour ton papa taatrte bih lets go for macha on se relaxe</p>
+    // --- SECTION SOIRÉE FILM ---
+    function FilmNight() {
+      const content = `
+        <h2>Va pour les films, baby ✨</h2>
+        <p>On choisit le thème de ce soir.</p>
+        <p><b>Tu as envie de :</b></p>
+        <div class="button-group">
+          <button onclick="scarynight()">Film d'horreur ☠️</button>
+          <button onclick="loveAdventure()">Mix Aventure/Amour 🚗</button>
+          <button onclick="divers()">Je te laisse réfléchir pendant que je prépare les snacks 😁💜</button>
+        </div>`;
+      fadeOutAndChange(content);
+    }
     
-    <div class="button-group">
-      <button onclick="douche()">aprés une séance relaxé on prendla douche</button>
-      <button onclick="lit()">Honey take me to bed </button>
-    </div>
-  `;
-  fadeOutAndChange(content);
-}
-function douche() {
-  const content = `
-    <h2>baby nesrine allons prendre une belle douche </h2>
-    <p>tu accepte la proposition honey et on y va on prepara la bénoire, les shampoing</p>
-    <p>tu est magnnfique ma reine </p>
-    <div class="button-group">
-      <button onclick="jeux()">on y retourne pour soirée jeux</button>
-      <button onclick="lit()">Honey take me to bed </button>
-    </div>
-  `;
-  fadeOutAndChange(content);
-}
-function jeux() {
-  const content = `
-    <h2>aprés une belle douche</h2>
-    <p>Direction le sallon baby</p>
-    <p>ou on passe une magnfique seance de jeux entre énigme, aventure, questionnaire </p>
-    <div class="button-group">
+    function loveAdventure() {
+        const content = `
+        <h2>Aventure et Amour 🚗💖</h2>
+        <p>Le film nous emporte dans un road trip plein de rebondissements et de moments tendres.</p>
+        <p>Après, on se sent inspirés.</p>
+        <div class="button-group">
+          <button onclick="regarderEtoiles()">Regarder les étoiles et rêver de nos propres aventures</button>
+          <button onclick="jeux()">Jouer à un jeu de société</button>
+        </div>`;
+        fadeOutAndChange(content);
+    }
 
-      <button onclick="end()">lets go to rest now baby </button>
-    </div>
-  `;
-  fadeOutAndChange(content);
-}
-
-function lit() {
-  const content = `
-    <h2>une fois au lit</h2>
-    <p>on se reconte</p>
-    <p>nos divers aventure, le passé les challange qui nous ont guidé et enfin réunie on se raconte meme des histoire comme des enfant depuis un livre car avec toi je suis avec ma mére</p>
-    <div class="button-group">
-
-      <button onclick="end()">lets go to rest now baby </button>
-    </div>
-  `;
-  fadeOutAndChange(content);
-}
-
-
-
-function fairepeur() {
-  const content = `
-    <h2>wail figé sur le film</h2>
+    function scarynight() {
+      const content = `
+        <h2>🎃 Soirée Horreur</h2>
+        <p>La pièce est sombre, les bougies dansent... Wail te regarde avec un sourire malicieux.</p>
+        <p>Le film commence... un bruit étrange se fait entendre dans la cuisine...</p>
+        <div class="button-group">
+          <button onclick="Hug()">Te blottir contre Wail 😱</button>
+          <button onclick="fairepeur()">Rire et lui faire peur 😈</button>
+        </div>`;
+      fadeOutAndChange(content);
+    }
     
-    <p>Nesrine rapproche sa main et me pince deriere ma nuque *bouuuuuh*  avous bébé ca ta fais peur ?</p>
-    <div class="button-group">
+    function Hug() {
+      const content = `
+        <h2>"Ah c'est trop pour moi :)"</h2>
+        <p>Nesrine sursaute et se blottit contre Wail.</p>
+        <p>"C'est bon, mettons autre chose !"</p>
+        <div class="button-group">
+          <button onclick="rire()">"Haha, même moi ça m'a eu !"</button>
+          <button onclick="outride()">"Sortons, c'est mieux baby, tu oublieras <3"</button>
+        </div>`;
+      fadeOutAndChange(content);
+    }
 
-      <button onclick="rirrre()">oui bébé tu ma bien eu </button>
-    </div>
-  `;
-  fadeOutAndChange(content);
-}
+    function rire() {
+      const content = `
+        <h2>"Oui ma petite fille"</h2>
+        <p>"Même ton papa a été touché, on se détend."</p>
+        <div class="button-group">
+          <button onclick="douche()">"Après ça, on prend une douche relaxante"</button>
+          <button onclick="lit()">"Honey, take me to bed"</button>
+        </div>`;
+      fadeOutAndChange(content);
+    }
 
+    function douche() {
+      const content = `
+        <h2>"Baby Nesrine, allons prendre une belle douche"</h2>
+        <p>Tu acceptes, et on prépare la baignoire, les shampoings...</p>
+        <p>Tu es magnifique, ma reine.</p>
+        <div class="button-group">
+          <button onclick="jeux()">"Retournons pour une soirée jeux"</button>
+          <button onclick="lit()">"Honey, take me to bed"</button>
+        </div>`;
+      fadeOutAndChange(content);
+    }
 
+    function jeux() {
+      const content = `
+        <h2>Après une belle douche</h2>
+        <p>Direction le salon pour une séance de jeux : énigmes, aventure, questionnaires...</p>
+        <div class="button-group">
+          <button onclick="end()">"Allons nous reposer maintenant, baby"</button>
+        </div>`;
+      fadeOutAndChange(content);
+    }
 
-function rirrre() {
-  const content = `
-    <h2>wail effrayé </h2>
-    
-    <p>puis prend un enorme sourire et rire hhhh yes my baby wlh tu ma bien eu continuons le film </p>
-    <div class="button-group">
+    function lit() {
+      const content = `
+        <h2>Une fois au lit</h2>
+        <p>On se raconte nos aventures, le passé, les défis qui nous ont guidés et enfin réunis. On se lit des histoires, comme des enfants.</p>
+        <div class="button-group">
+          <button onclick="end()">"Allons nous reposer maintenant, baby"</button>
+        </div>`;
+      fadeOutAndChange(content);
+    }
 
-      <button onclick="continué()">oui hamouda on continue </button>
-    </div>
-  `;
-  fadeOutAndChange(content);
-}
+    function fairepeur() {
+      const content = `
+        <h2>Wail, figé sur le film</h2>
+        <p>Nesrine s'approche et le pince derrière la nuque *bouuuuuh* "Avoue bébé, ça t'a fait peur ?"</p>
+        <div class="button-group">
+          <button onclick="rirrre()">"Oui bébé, tu m'as bien eu"</button>
+        </div>`;
+      fadeOutAndChange(content);
+    }
 
-function continué() {
-  const content = `
-    <h2>a la suite du film </h2>
-    <p>aprés la fin de la séance wail est nesrine décide de faire une pause snack</p>
-    <p>avant de décidé que faire aprés </p>
-    <div class="button-group">
-       <button onclick="douche()">on va prendre une douche </button>
-      <button onclick="jeux()">on va joué </button>
-    </div>
-  `;
-  fadeOutAndChange(content);
-}
+    function rirrre() {
+      const content = `
+        <h2>Wail, effrayé</h2>
+        <p>Puis il éclate de rire "Hahaha, oui ma chérie, tu m'as bien eu. Continuons le film."</p>
+        <div class="button-group">
+          <button onclick="continué()">"Oui, on continue"</button>
+        </div>`;
+      fadeOutAndChange(content);
+    }
 
-function divers() {
-  const content = `
-    <h2>Soirée Film spécial 🎬💫</h2>
-    <p>On se blottit sous le lit de notre chambrr, pop-corn en main 🍿</p>
-    <p><b>Tu veux regarder :</b></p>
+    function continué() {
+      const content = `
+        <h2>Après le film</h2>
+        <p>Wail et Nesrine décident de faire une pause snack avant de décider quoi faire après.</p>
+        <div class="button-group">
+          <button onclick="douche()">"On va prendre une douche"</button>
+          <button onclick="jeux()">"On va jouer"</button>
+        </div>`;
+      fadeOutAndChange(content);
+    }
 
-    <div class="button-group">
-      <button onclick="filmNetflix()">Un classique Netflix (romance/roadtrip)</button>
-      <button onclick="filmAnime()">Un film d’animation romantique</button>
-      <button onclick="filmSurprise()">Surprise par Nesrine 💌</button>
-    </div>
-  `;
-  fadeOutAndChange(content);
-}
+    function divers() {
+      const content = `
+        <h2>Soirée Film spécial 🎬💫</h2>
+        <p>On se blottit sous la couette, pop-corn en main 🍿</p>
+        <p><b>Tu veux regarder :</b></p>
+        <div class="button-group">
+          <button onclick="filmNetflix()">Un classique Netflix (romance/road-trip)</button>
+          <button onclick="filmAnime()">Un film d’animation romantique</button>
+          <button onclick="filmSurprise()">Surprise de Nesrine 💌</button>
+        </div>`;
+      fadeOutAndChange(content);
+    }
 
+    function filmNetflix() {
+        const content = `
+        <h2>Classique Netflix 🍿</h2>
+        <p>Le choix parfait pour une soirée câline. On se laisse emporter par l'histoire.</p>
+        <p>Après le film :</p>
+        <div class="button-group">
+            <button onclick="regarderEtoiles()">Regarder les étoiles et discuter du film ✨</button>
+            <button onclick="end()">Finir par un gros câlin et dormir 😴</button>
+        </div>`;
+        fadeOutAndChange(content);
+    }
 
+    function filmSurprise() {
+      const content = `
+        <h2>Soirée surprise signée Nesrine 🎁</h2>
+        <p>Elle choisit un film romantique qu’elle adore… et tu te laisses porter par son joli sourire et sa belle odeur 🥰</p>
+        <p>Après le film :</p>
+        <div class="button-group">
+          <button onclick="baladeNocturne()">Sortie surprise nocturne 🌙</button>
+          <button onclick="regarderEtoiles()">Regarder les étoiles depuis la fenêtre ✨</button>
+        </div>`;
+      fadeOutAndChange(content);
+    }
 
-function filmSurprise() {
-  const content = `
-    <h2>Soirée surprise signée Nesrine 🎁</h2>
-    <p>Elle choisit un film romantique qu’elle adore… et toi tu te laisses porter par sont jolie sourire et belle odeur🥰</p>
-    <p>Après le film :</p>
-    <div class="button-group">
-      <button onclick="baladeNocturne()">Sortie surprise nocturne 🌙</button>
-<button onclick="regarderEtoiles()">Regarder les étoiles depuis la fenêtre ✨</button>
-     
-    </div>
-  `;
-  fadeOutAndChange(content);
-}
+    function filmAnime() {
+      const content = `
+        <h2>Film d’animation doux & magique ✨</h2>
+        <p>On regarde "Your Name" ou "Le Château ambulant", les yeux brillants, le cœur léger 💖</p>
+        <div class="button-group">
+          <button onclick="jeux()">"Après ce film, jouons à quelque chose !"</button>
+          <button onclick="douche()">"Après ce film, prenons une douche 🚿"</button>
+        </div>`;
+      fadeOutAndChange(content);
+    }
 
-function filmAnime() {
-  const content = `
-    <h2>Film d’animation doux & magique ✨</h2>
-    <p>On regarde "Your Name" ou "Le Château ambulant", yeux brillants, cœur léger 💖</p>
-    <div class="button-group">
-      <button onclick="jeux()">après ce magnifique film on décide de joué</button>
-      <button onclick="douche()">après ce magnifique film de prendre une douche 🚿</button>
-      
+    function regarderEtoiles() {
+      const content = `
+        <h2>Étoiles et confidences ✨</h2>
+        <p>On ouvre la fenêtre, on regarde les étoiles, on s'imagine nos prochains voyages…</p>
+        <div class="button-group">
+          <button onclick="end()">On finit par un gros câlin et un bisou. Bonne nuit 😴</button>
+        </div>`;
+      fadeOutAndChange(content);
+    }
 
-  `;
-  fadeOutAndChange(content);
-}
-
-function regarderEtoiles() {
-  const content = `
-    <h2>Étoiles et confidences ✨</h2>
-    <p>On ouvre la fenêtre, on regarde les étoiles, on s'imagine nos prochains voyages…</p>
-    <div class="button-group">
-      <button onclick="end()">On finit par un gros câlin et un bisou bonne nuit 😴</button>
-    </div>
-  `;
-  fadeOutAndChange(content);
-}
-
-
-
-
-
-    
-    
+    // --- Fonctions de fin ---
     function end() {
       const content = `
-        <h2>❤️ Fin d'une belle soité </h2>
-        <p>Chaque instant avec toi et un moment  magnifique  remplie d'amour, de rires et de souvenirs 💖 mon amoureuse 💖 </p>
-        <button onclick="startStory()">Revivre la journée 🌅</button>
-      `;
+        <h2>❤️ Fin d'une belle soirée</h2>
+        <p>Chaque instant avec toi est un moment magnifique, rempli d'amour, de rires et de souvenirs 💖 mon amoureuse 💖</p>
+        <div class="button-group">
+          <button onclick="startStory()">Revivre la journée 🌅</button>
+        </div>`;
       fadeOutAndChange(content);
-      createFireworks(); // Call fireworks at the end of the story
+      createFireworks();
     }
 
     function createFireworks() {
-      // Création d'effets de feu d'artifice pour la fin
       const finalScreen = document.createElement('div');
       finalScreen.className = 'final-screen';
-      document.body.appendChild(finalScreen); // Append to body or a specific container
-
+      document.body.appendChild(finalScreen);
       for (let i = 0; i < 20; i++) {
         setTimeout(() => {
           const firework = document.createElement('div');
@@ -579,14 +692,11 @@ function regarderEtoiles() {
           firework.style.top = Math.random() * 100 + '%';
           firework.style.color = ['#ff6f61', '#ffb8b8', '#ffd3d3', '#ffffff'][Math.floor(Math.random() * 4)];
           finalScreen.appendChild(firework);
-          
-          setTimeout(() => {
-            firework.remove();
-          }, 1000);
-        }, i * 300);
+          setTimeout(() => firework.remove(), 1000);
+        }, i * 150);
       }
+      setTimeout(() => finalScreen.remove(), 5000);
     }
-    
   </script>
 </body>
 </html>
