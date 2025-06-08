@@ -64,7 +64,22 @@ document.addEventListener('DOMContentLoaded', () => {
             particle.remove();
         });
     }
+// Déplacez la déclaration de startStory en haut de votre script
+function startStory() {
+  const content = `
+    <h2>Soirée Unique avec Wail ✨</h2>
+    <p>Le soleil se couche le ventre plein grace a la délicieuse cuissons de nesrine </p>
+    <p><b>Ce soir, deux mondes s'ouvrent à toi. Choisis ton aventure ::</b></p>
 
+    <div class="button-group">
+      <button onclick="FilmNight()">Night movies 7obi wail</button>
+      <button onclick="outride()">sortie nuit omri 🖼️</button>
+    </div>
+  `;
+  fadeOutAndChange(content);
+}
+
+// Puis votre addEventListener existant...
     // Emit a new particle every X milliseconds
     setInterval(createLoveParticle, 800); // Adjust frequency as desired
 });
@@ -102,20 +117,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Story functions (continue to define all your scene functions here)
 
-    function startStory() {
-      const content = `
-        <h2>Soirée Unique avec Wail ✨</h2>
-        <p>Le soleil se couche le ventre plein grace a la délicieuse cuissons de nesrine </p>
-        <p><b>Ce soir, deux mondes s’ouvrent à toi. Choisis ton aventure ::</b></p>
-
-        <div class="button-group">
-          <button onclick="FilmNight()">Night movies 7obi wail</button>
-          <button onclick="outride()">sortie nuit omri 🖼️</button>
-    
-        </div>
-      `;
-      fadeOutAndChange(content);
-    }
+  
 /*===============================================================
 OUT RIDE SECTION
 =====================*/
