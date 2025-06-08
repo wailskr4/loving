@@ -7,7 +7,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
   
-  <!-- J'ai ajouté des styles directement ici pour que tout fonctionne sans fichier externe -->
   <style>
     body {
       font-family: 'Poppins', sans-serif;
@@ -82,9 +81,9 @@
         margin: 10px 0;
         padding: 15px;
         border-radius: 8px;
+        text-align: left;
     }
     
-    /* Animations pour le changement de contenu */
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
@@ -101,7 +100,6 @@
       animation-delay: 0.5s;
     }
 
-    /* Particules d'amour */
     .love-particle {
       position: absolute;
       width: 10px;
@@ -118,7 +116,6 @@
       99% { opacity: 0; }
     }
     
-    /* Boutons de musique */
     #toggleMusicBtn, .floating-music-btn {
         position: fixed;
         bottom: 20px;
@@ -131,6 +128,7 @@
         align-items: center;
         justify-content: center;
         font-size: 12px;
+        transition: all 0.3s ease;
     }
     .floating-music-btn {
         left: 20px;
@@ -139,7 +137,6 @@
         right: 20px;
     }
 
-    /* Effets de fin */
     .final-screen {
         position: fixed;
         top: 0;
@@ -162,6 +159,42 @@
         0% { transform: scale(1); opacity: 1; }
         100% { transform: scale(3); opacity: 0; }
     }
+
+    /* --- ✨ AMÉLIORATIONS POUR MOBILE ✨ --- */
+    @media (max-width: 600px) {
+      body {
+        padding: 10px;
+      }
+      .container {
+        padding: 1.5em; /* Espacement intérieur réduit */
+        width: 95%;
+      }
+      h2 {
+        font-size: 2.4em; /* Titre plus adapté */
+      }
+      p {
+        font-size: 1em; /* Texte standard plus lisible */
+      }
+      .button-group {
+          gap: 10px; /* Moins d'espace entre les boutons */
+      }
+      button {
+        padding: 12px 20px; /* Boutons légèrement plus petits */
+        font-size: 0.95em;
+      }
+      #toggleMusicBtn, .floating-music-btn {
+          width: 50px; /* Boutons de musique plus discrets */
+          height: 50px;
+          font-size: 10px;
+          bottom: 15px;
+      }
+      .floating-music-btn {
+        left: 15px;
+      }
+      #toggleMusicBtn {
+        right: 15px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -181,7 +214,6 @@
   </div>
 
   <audio id="romanticAudio" loop>
-    <!-- Source audio à remplacer par un lien valide -->
     <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
     Ton navigateur ne supporte pas l'audio HTML5.
   </audio>
@@ -219,11 +251,10 @@
     // --- Fonction principale pour changer le contenu ---
     function fadeOutAndChange(content) {
         if (!gameContainer) return;
-        gameContainer.classList.add('fadeOut');
+        gameContainer.style.animation = 'fadeOut 0.5s ease-out forwards';
         setTimeout(() => {
             gameContainer.innerHTML = content;
-            gameContainer.classList.remove('fadeOut');
-            gameContainer.classList.add('fadeIn');
+            gameContainer.style.animation = 'fadeIn 0.5s ease-out forwards';
             window.scrollTo(0, 0);
         }, 500);
     }
@@ -285,9 +316,6 @@
         </div>`;
       fadeOutAndChange(content);
     }
-    
-    // J'ai ajouté les autres fonctions de l'histoire ici pour que tout soit fonctionnel.
-    // J'ai également corrigé des erreurs de syntaxe et des fautes de frappe.
     
     function Ritajmall() {
       const content = `
