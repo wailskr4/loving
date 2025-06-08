@@ -491,15 +491,60 @@ function continué() {
   fadeOutAndChange(content);
 }
 
+function divers() {
+  const content = `
+    <h2>Soirée Film spécial 🎬💫</h2>
+    <p>On se blottit sous le lit de notre chambrr, pop-corn en main 🍿</p>
+    <p><b>Tu veux regarder :</b></p>
+
+    <div class="button-group">
+      <button onclick="filmNetflix()">Un classique Netflix (romance/roadtrip)</button>
+      <button onclick="filmAnime()">Un film d’animation romantique</button>
+      <button onclick="filmSurprise()">Surprise par Nesrine 💌</button>
+    </div>
+  `;
+  fadeOutAndChange(content);
+}
 
 
 
+function filmSurprise() {
+  const content = `
+    <h2>Soirée surprise signée Nesrine 🎁</h2>
+    <p>Elle choisit un film romantique qu’elle adore… et toi tu te laisses porter par sont jolie sourire et belle odeur🥰</p>
+    <p>Après le film :</p>
+    <div class="button-group">
+      <button onclick="baladeNocturne()">Sortie surprise nocturne 🌙</button>
+<button onclick="regarderEtoiles()">Regarder les étoiles depuis la fenêtre ✨</button>
+     
+    </div>
+  `;
+  fadeOutAndChange(content);
+}
 
+function filmAnime() {
+  const content = `
+    <h2>Film d’animation doux & magique ✨</h2>
+    <p>On regarde "Your Name" ou "Le Château ambulant", yeux brillants, cœur léger 💖</p>
+    <div class="button-group">
+      <button onclick="jeux()">après ce magnifique film on décide de joué</button>
+      <button onclick="douche()">après ce magnifique film de prendre une douche 🚿</button>
+      
 
+  `;
+  fadeOutAndChange(content);
+}
 
-
-
-
+function regarderEtoiles() {
+  const content = `
+    <h2>Étoiles et confidences ✨</h2>
+    <p>On ouvre la fenêtre, on regarde les étoiles, on s'imagine nos prochains voyages…</p>
+    <div class="button-group">
+      <button onclick="end()">On finit par un gros câlin et un bisou bonne nuit 😴</button>
+    </div>
+  `;
+  fadeOutAndChange(content);
+}
 
 
 
